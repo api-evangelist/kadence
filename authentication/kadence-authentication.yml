@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/kadence-public-api-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: oauth
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.onkadence.co/oauth2/token
+    scopes: 1
+  description: OAuth 2.0 client credentials Grant
+  sources:
+  - openapi/kadence-public-api-openapi.yml
