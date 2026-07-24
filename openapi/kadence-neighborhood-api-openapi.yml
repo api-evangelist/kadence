@@ -1,0 +1,270 @@
+openapi: 3.1.0
+info:
+  title: Kadence Public Bookable Day Neighborhood API
+  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
+
+
+    ## Regional Environments
+
+
+    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
+
+
+    **EU region: (default)**
+
+
+    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
+
+    - API: [https://api.onkadence.co](https://api.onkadence.co)
+
+
+    **US region:**
+
+
+    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
+
+    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
+
+
+    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
+
+
+    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  version: 1.2.0
+  x-logo:
+    url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
+    backgroundColor: '#FAFAFA'
+    altText: Kadence logo
+servers:
+- url: https://api.onkadence.co
+  description: Production
+- url: https://api.us.onkadence.co
+  description: Production (US)
+security:
+- oauth: []
+tags:
+- name: Neighborhood
+paths:
+  /v1/public/neighborhoods:
+    get:
+      operationId: api_v1publicneighborhoods_get_collection
+      tags:
+      - Neighborhood
+      responses:
+        '200':
+          description: Neighborhood collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  hydra:member:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Neighborhood.jsonld-public_neighborhoods'
+                  hydra:totalItems:
+                    type: integer
+                    minimum: 0
+                required:
+                - hydra:member
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Neighborhood-public_neighborhoods'
+      summary: Get neighborhoods
+      description: Get a list of all the neighborhoods within your company from all the floors.
+      parameters:
+      - name: buildingId
+        in: query
+        description: Filter by building identifier
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01CBCV1CT3BM8A52SEJ2J5F4EB
+      - name: floorId
+        in: query
+        description: Filter by floor identifier
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01H57KGTPZ50STX5N62Q991JNM
+      - name: page
+        in: query
+        description: The page of neighborhoods to get
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+        example: '1'
+      - name: itemsPerPage
+        in: query
+        description: Number of neighborhoods to get per page
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+        style: form
+        explode: false
+        allowReserved: false
+        example: '30'
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+  /v1/public/neighborhoods/{id}:
+    get:
+      operationId: api_v1publicneighborhoods_id_get
+      tags:
+      - Neighborhood
+      responses:
+        '200':
+          description: Neighborhood resource
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Neighborhood.jsonld-public_neighborhoods'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Neighborhood-public_neighborhoods'
+        '404':
+          description: Resource not found
+      summary: Get a single neighborhood by identifier
+      description: Get a neighborhood if you know it's identifier.
+      parameters:
+      - name: id
+        in: path
+        description: Neighborhood identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+components:
+  schemas:
+    Ulid-public_neighborhoods:
+      type: object
+      description: ''
+      deprecated: false
+    Neighborhood-public_neighborhoods:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_neighborhoods'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+    Ulid.jsonld-public_neighborhoods:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Neighborhood.jsonld-public_neighborhoods:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@id':
+          readOnly: true
+          type: string
+          example: /v1/public/neighborhoods/01GTBV1CT3BM8A42SEJ2J5F4EG
+        '@type':
+          readOnly: true
+          type: string
+          example: Neighborhood
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_neighborhoods'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: OAuth 2.0 client credentials Grant
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.onkadence.co/oauth2/token
+          scopes:
+            public: Public API access

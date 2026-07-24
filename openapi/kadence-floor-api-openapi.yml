@@ -1,0 +1,268 @@
+openapi: 3.1.0
+info:
+  title: Kadence Public Bookable Day Floor API
+  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
+
+
+    ## Regional Environments
+
+
+    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
+
+
+    **EU region: (default)**
+
+
+    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
+
+    - API: [https://api.onkadence.co](https://api.onkadence.co)
+
+
+    **US region:**
+
+
+    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
+
+    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
+
+
+    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
+
+
+    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  version: 1.2.0
+  x-logo:
+    url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
+    backgroundColor: '#FAFAFA'
+    altText: Kadence logo
+servers:
+- url: https://api.onkadence.co
+  description: Production
+- url: https://api.us.onkadence.co
+  description: Production (US)
+security:
+- oauth: []
+tags:
+- name: Floor
+paths:
+  /v1/public/floors:
+    get:
+      operationId: api_v1publicfloors_get_collection
+      tags:
+      - Floor
+      responses:
+        '200':
+          description: Floor collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  hydra:member:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Floor.jsonld-public_floor'
+                  hydra:totalItems:
+                    type: integer
+                    minimum: 0
+                required:
+                - hydra:member
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Floor-public_floor'
+      summary: Get a collection of floors
+      description: Get a list of all the floors within your company from all the buildings.
+      parameters:
+      - name: buildingId
+        in: query
+        description: Filter by building identifier
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01CBCV1CT3BM8A52SEJ2J5F4EB
+      - name: page
+        in: query
+        description: The page of floors to get
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+        example: '1'
+      - name: itemsPerPage
+        in: query
+        description: Number of floors to get per page
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+        style: form
+        explode: false
+        allowReserved: false
+        example: '30'
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+  /v1/public/floors/{id}:
+    get:
+      operationId: api_v1publicfloors_id_get
+      tags:
+      - Floor
+      responses:
+        '200':
+          description: Floor resource
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Floor.jsonld-public_floor'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Floor-public_floor'
+        '404':
+          description: Resource not found
+      summary: Get a single floor by identifier
+      description: Get a floor if you know it's identifier.
+      parameters:
+      - name: id
+        in: path
+        description: Floor identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+components:
+  schemas:
+    Floor-public_floor:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the floor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_floor'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the floor.
+          example: Floor 01
+        floorPlanUrl:
+          readOnly: true
+          type: string
+          description: The URL of the Floor plan SVG.
+          example: https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg
+    Floor.jsonld-public_floor:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@id':
+          readOnly: true
+          type: string
+          example: /v1/public/floors/01GTBV1CT3BM8A42SEJ2J5F4EG
+        '@type':
+          readOnly: true
+          type: string
+          example: Floor
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the floor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_floor'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the floor.
+          example: Floor 01
+        floorPlanUrl:
+          readOnly: true
+          type: string
+          description: The URL of the Floor plan SVG.
+          example: https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg
+    Ulid-public_floor:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid.jsonld-public_floor:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: OAuth 2.0 client credentials Grant
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.onkadence.co/oauth2/token
+          scopes:
+            public: Public API access

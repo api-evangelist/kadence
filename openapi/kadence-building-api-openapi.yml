@@ -1,0 +1,451 @@
+openapi: 3.1.0
+info:
+  title: Kadence Public Bookable Day Building API
+  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
+
+
+    ## Regional Environments
+
+
+    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
+
+
+    **EU region: (default)**
+
+
+    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
+
+    - API: [https://api.onkadence.co](https://api.onkadence.co)
+
+
+    **US region:**
+
+
+    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
+
+    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
+
+
+    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
+
+
+    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  version: 1.2.0
+  x-logo:
+    url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
+    backgroundColor: '#FAFAFA'
+    altText: Kadence logo
+servers:
+- url: https://api.onkadence.co
+  description: Production
+- url: https://api.us.onkadence.co
+  description: Production (US)
+security:
+- oauth: []
+tags:
+- name: Building
+paths:
+  /v1/public/buildings:
+    get:
+      operationId: api_v1publicbuildings_get_collection
+      tags:
+      - Building
+      responses:
+        '200':
+          description: Building collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  hydra:member:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Building.jsonld-public_building'
+                  hydra:totalItems:
+                    type: integer
+                    minimum: 0
+                required:
+                - hydra:member
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Building-public_building'
+      summary: Get buildings
+      description: Get a list of all the buildings within your company.
+      parameters:
+      - name: countryCode
+        in: query
+        description: Filter buildings by the ISO 3166-1 alpha-2 code of the country where the building is located
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: GB
+      - name: city
+        in: query
+        description: Filter buildings by the city where the building is located
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: London
+      - name: name
+        in: query
+        description: Filter buildings by name
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: Bell Yard
+      - name: page
+        in: query
+        description: The page of buildings to get
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+        example: '1'
+      - name: itemsPerPage
+        in: query
+        description: Number of buildings to get per page
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+        style: form
+        explode: false
+        allowReserved: false
+        example: '30'
+      - name: id
+        in: query
+        description: Building identifier
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+  /v1/public/buildings/{id}:
+    get:
+      operationId: api_v1publicbuildings_id_get
+      tags:
+      - Building
+      responses:
+        '200':
+          description: Building resource
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Building.jsonld-public_building'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Building-public_building'
+        '404':
+          description: Resource not found
+      summary: Get a single building by identifier
+      description: Get a single building if you know it's identifier.
+      parameters:
+      - name: id
+        in: path
+        description: Building identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+components:
+  schemas:
+    Building-public_building:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the building.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_building'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the building.
+          example: London Office
+        timeZone:
+          readOnly: true
+          type: string
+          description: The IANA time zone that the building is in.
+          example: Europe/London
+        latitude:
+          readOnly: true
+          type: number
+          format: float
+          description: The latitude of the building's location.
+          example: 51.509865
+        longitude:
+          readOnly: true
+          type: number
+          format: float
+          description: The longitude of the building's location.
+          example: -0.118092
+        addressLine1:
+          readOnly: true
+          type: string
+          description: The first line of the building address.
+          example: 20 Fenchurch Street
+        addressLine2:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The second line of the building address.
+          example: null
+        city:
+          readOnly: true
+          type: string
+          description: The name of the city that the building is in.
+          example: London
+        county:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The name of the county that the building is in.
+          example: null
+        countryCode:
+          readOnly: true
+          type: string
+          description: The ISO 3166-1 alpha-2 country code that the building is in.
+          example: GB
+        photo:
+          readOnly: true
+          description: The UUID of the photo of the building.
+          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
+          anyOf:
+          - $ref: '#/components/schemas/Uuid-public_building'
+          - type: 'null'
+        createdAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time that the building was created at.
+          example: '2017-07-21T17:32:28+00:00'
+        modifiedAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time that the building was last modified at.
+          example: '2017-07-21T17:32:28+00:00'
+    Ulid.jsonld-public_building:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Ulid-public_building:
+      type: object
+      description: ''
+      deprecated: false
+    Uuid.jsonld-public_building:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Uuid-public_building:
+      type: object
+      description: ''
+      deprecated: false
+    Building.jsonld-public_building:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@id':
+          readOnly: true
+          type: string
+          example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
+        '@type':
+          readOnly: true
+          type: string
+          example: Building
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the building.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_building'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the building.
+          example: London Office
+        timeZone:
+          readOnly: true
+          type: string
+          description: The IANA time zone that the building is in.
+          example: Europe/London
+        latitude:
+          readOnly: true
+          type: number
+          format: float
+          description: The latitude of the building's location.
+          example: 51.509865
+        longitude:
+          readOnly: true
+          type: number
+          format: float
+          description: The longitude of the building's location.
+          example: -0.118092
+        addressLine1:
+          readOnly: true
+          type: string
+          description: The first line of the building address.
+          example: 20 Fenchurch Street
+        addressLine2:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The second line of the building address.
+          example: null
+        city:
+          readOnly: true
+          type: string
+          description: The name of the city that the building is in.
+          example: London
+        county:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The name of the county that the building is in.
+          example: null
+        countryCode:
+          readOnly: true
+          type: string
+          description: The ISO 3166-1 alpha-2 country code that the building is in.
+          example: GB
+        photo:
+          readOnly: true
+          description: The UUID of the photo of the building.
+          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
+          anyOf:
+          - $ref: '#/components/schemas/Uuid.jsonld-public_building'
+          - type: 'null'
+        createdAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time that the building was created at.
+          example: '2017-07-21T17:32:28+00:00'
+        modifiedAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time that the building was last modified at.
+          example: '2017-07-21T17:32:28+00:00'
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: OAuth 2.0 client credentials Grant
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.onkadence.co/oauth2/token
+          scopes:
+            public: Public API access

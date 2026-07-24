@@ -1,0 +1,316 @@
+openapi: 3.1.0
+info:
+  title: Kadence Public Bookable Day Bookable Space API
+  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
+
+
+    ## Regional Environments
+
+
+    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
+
+
+    **EU region: (default)**
+
+
+    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
+
+    - API: [https://api.onkadence.co](https://api.onkadence.co)
+
+
+    **US region:**
+
+
+    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
+
+    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
+
+
+    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
+
+
+    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  version: 1.2.0
+  x-logo:
+    url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
+    backgroundColor: '#FAFAFA'
+    altText: Kadence logo
+servers:
+- url: https://api.onkadence.co
+  description: Production
+- url: https://api.us.onkadence.co
+  description: Production (US)
+security:
+- oauth: []
+tags:
+- name: Bookable Space
+paths:
+  /v1/public/bookable-spaces:
+    get:
+      operationId: api_v1publicbookable-spaces_get_collection
+      tags:
+      - Bookable Space
+      responses:
+        '200':
+          description: Bookable Space collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  hydra:member:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bookable.Space.jsonld-public_bookable_space.list'
+                  hydra:totalItems:
+                    type: integer
+                    minimum: 0
+                required:
+                - hydra:member
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bookable.Space-public_bookable_space.list'
+      summary: Get Bookable Spaces
+      description: Get a list of all the spaces on a specific floor, which may be booked for a specific user during a specific time period.
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      - name: floorId
+        in: query
+        description: Floor identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: userId
+        in: query
+        description: User identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: startDateTime
+        in: query
+        description: UTC Booking start date time in format YYYY-MM-DDThh:mm:ss
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2023-07-03T09:00:00'
+      - name: endDateTime
+        in: query
+        description: UTC Booking start date time in format YYYY-MM-DDThh:mm:ss
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2023-07-03T17:00:00'
+      - name: spaceType
+        in: query
+        description: The type of resource that you require. Defaults to desk
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - desk
+          - private_office
+          - room
+          - onsite
+          - locker
+          - pod
+          - parking
+        style: form
+        explode: false
+        allowReserved: false
+        example: desk
+      deprecated: false
+components:
+  schemas:
+    Ulid-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+    Bookable.Space.jsonld-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the space.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_bookable_space.list'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the space.
+          example: Desk 01
+        type:
+          readOnly: true
+          type: string
+          example: desk
+          description: The type of space.
+        neighborhood:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Neighborhood.jsonld-public_bookable_space.list'
+          - type: 'null'
+    Neighborhood.jsonld-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_bookable_space.list'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+    Bookable.Space-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the space.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_bookable_space.list'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the space.
+          example: Desk 01
+        type:
+          readOnly: true
+          type: string
+          example: desk
+          description: The type of space.
+        neighborhood:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Neighborhood-public_bookable_space.list'
+          - type: 'null'
+    Ulid.jsonld-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Neighborhood-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_bookable_space.list'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: OAuth 2.0 client credentials Grant
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.onkadence.co/oauth2/token
+          scopes:
+            public: Public API access

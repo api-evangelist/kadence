@@ -1,0 +1,189 @@
+openapi: 3.1.0
+info:
+  title: Kadence Public Bookable Day API
+  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
+
+
+    ## Regional Environments
+
+
+    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
+
+
+    **EU region: (default)**
+
+
+    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
+
+    - API: [https://api.onkadence.co](https://api.onkadence.co)
+
+
+    **US region:**
+
+
+    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
+
+    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
+
+
+    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
+
+
+    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  version: 1.2.0
+  x-logo:
+    url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
+    backgroundColor: '#FAFAFA'
+    altText: Kadence logo
+servers:
+- url: https://api.onkadence.co
+  description: Production
+- url: https://api.us.onkadence.co
+  description: Production (US)
+security:
+- oauth: []
+tags:
+- name: Bookable Day
+paths:
+  /v1/public/bookable-days:
+    get:
+      operationId: api_v1publicbookable-days_get_collection
+      tags:
+      - Bookable Day
+      responses:
+        '200':
+          description: Bookable Day collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  hydra:member:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bookable.Day.jsonld-public_bookable_day'
+                  hydra:totalItems:
+                    type: integer
+                    minimum: 0
+                required:
+                - hydra:member
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bookable.Day-public_bookable_day'
+      summary: Get a collection of Bookable Days
+      description: Get a list of all days that a booking can be made for specific user in a specific building.
+      parameters:
+      - name: buildingId
+        in: query
+        description: The building identifier to get a collection of bookable days for.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01CBCV1CT3BM8A52SEJ2J5F4EB
+      - name: userId
+        in: query
+        description: The user identifier to get a collection of bookable days for.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01CADV1CT3BM8A52SEJ2J5F4EB
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+  /v1/public/bookable-days/{id}:
+    get:
+      operationId: api_v1publicbookable-days_id_get
+      tags:
+      - Bookable Day
+      responses:
+        '204':
+          description: Bookable Day resource
+          content:
+            application/ld+json:
+              schema: null
+            text/csv:
+              schema: null
+        '404':
+          description: Resource not found
+      summary: Retrieves a Bookable Day resource.
+      description: Retrieves a Bookable Day resource.
+      parameters:
+      - name: id
+        in: path
+        description: Bookable Day identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      deprecated: false
+components:
+  schemas:
+    Bookable.Day.jsonld-public_bookable_day:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        start:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The start of the bookable day (in UTC). If the bookable day is "today", and the building is currently open, this will be the earliest time at which the api will accept a booking.
+          example: '2023-07-01T09:00:00+00:00'
+        end:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The end of the bookable day (in UTC).
+          example: '2023-07-01T17:00:00+00:00'
+    Bookable.Day-public_bookable_day:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        start:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The start of the bookable day (in UTC). If the bookable day is "today", and the building is currently open, this will be the earliest time at which the api will accept a booking.
+          example: '2023-07-01T09:00:00+00:00'
+        end:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The end of the bookable day (in UTC).
+          example: '2023-07-01T17:00:00+00:00'
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: OAuth 2.0 client credentials Grant
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.onkadence.co/oauth2/token
+          scopes:
+            public: Public API access

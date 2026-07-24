@@ -1,0 +1,675 @@
+openapi: 3.1.0
+info:
+  title: Kadence Public Bookable Day User API
+  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
+
+
+    ## Regional Environments
+
+
+    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
+
+
+    **EU region: (default)**
+
+
+    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
+
+    - API: [https://api.onkadence.co](https://api.onkadence.co)
+
+
+    **US region:**
+
+
+    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
+
+    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
+
+
+    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
+
+
+    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  version: 1.2.0
+  x-logo:
+    url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
+    backgroundColor: '#FAFAFA'
+    altText: Kadence logo
+servers:
+- url: https://api.onkadence.co
+  description: Production
+- url: https://api.us.onkadence.co
+  description: Production (US)
+security:
+- oauth: []
+tags:
+- name: User
+paths:
+  /v1/public/users:
+    get:
+      operationId: api_v1publicusers_get_collection
+      tags:
+      - User
+      responses:
+        '200':
+          description: User collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  hydra:member:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User.jsonld-public_user'
+                  hydra:totalItems:
+                    type: integer
+                    minimum: 0
+                required:
+                - hydra:member
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User-public_user'
+      summary: Get users
+      description: Get a list of all the users within your company.
+      parameters:
+      - name: email
+        in: query
+        description: Partial match of users by email address
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: john.smith@example.com
+      - name: emailExact
+        in: query
+        description: Exact match of users by email address
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: john.smith@example.com
+      - name: firstName
+        in: query
+        description: Filter users by first name
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: John
+      - name: lastName
+        in: query
+        description: Filter users by last name
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: Smith
+      - name: page
+        in: query
+        description: The page of users to get
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+        example: '1'
+      - name: itemsPerPage
+        in: query
+        description: Number of users to get per page
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+        style: form
+        explode: false
+        allowReserved: false
+        example: '30'
+      - name: id
+        in: query
+        description: User identifier
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      deprecated: false
+  /v1/public/users/{id}:
+    get:
+      operationId: api_v1publicusers_id_get
+      tags:
+      - User
+      responses:
+        '200':
+          description: User resource
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/User.jsonld-public_user'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/User-public_user'
+        '404':
+          description: Resource not found
+      summary: Get a single user by identifier
+      description: Get a single user if you know their identifier.
+      parameters:
+      - name: id
+        in: path
+        description: User identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+    patch:
+      operationId: api_v1publicusers_id_patch
+      tags:
+      - User
+      responses:
+        '200':
+          description: User resource updated
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/User.jsonld-public_user'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/User-public_user'
+          links: null
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+        '422':
+          description: Unprocessable entity
+      summary: Update a user
+      description: Update user information.
+      parameters:
+      - name: id
+        in: path
+        description: User identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/merge-patch+json
+      requestBody:
+        description: User fields to update
+        content:
+          application/merge-patch+json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                jobTitle:
+                  type: string
+                  nullable: true
+                biography:
+                  type: string
+                  nullable: true
+                locationTimezone:
+                  type: string
+                  nullable: true
+                locationCountryCode:
+                  type: string
+                  nullable: true
+                locationCityName:
+                  type: string
+                  nullable: true
+                locationLatitude:
+                  type: float
+                  nullable: true
+                locationLongitude:
+                  type: float
+                  nullable: true
+        required: false
+      deprecated: false
+  /v1/public/users/{id}/photo:
+    post:
+      operationId: api_v1publicusers_idphoto_post
+      tags:
+      - User
+      responses:
+        '201':
+          description: User resource created
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/User.jsonld-public_user'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/User-public_user'
+          links: null
+        '400':
+          description: Invalid input
+        '422':
+          description: Unprocessable entity
+      summary: Update a user profile picture
+      description: Update user profile picture.
+      parameters:
+      - name: id
+        in: path
+        description: User identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: multipart/form-data
+      requestBody:
+        description: The new User resource
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      deprecated: false
+components:
+  schemas:
+    User-public_user:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The user's ULID within the Kadence platform.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_user'
+        email:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/email
+          type: string
+          format: email
+          description: The user's email address.
+          example: john.smith@example.com
+        firstName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/givenName
+          type: string
+          description: The user's given name.
+          example: John
+        lastName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/familyName
+          type: string
+          description: The user's family name.
+          example: Smith
+        jobTitle:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/jobTitle
+          type: string
+          nullable: true
+          description: The user's job title.
+          example: Head of Marketing
+        invitationPending:
+          readOnly: true
+          type: boolean
+          description: Has the user signed up to use Kadence or is their invitation to join still pending?
+          example: true
+        preferredFloor:
+          readOnly: true
+          type: object
+          description: The user's preferred floor for booking when going into the office.
+          example:
+            id: 01GTBV1CT3BM8A42SEJ2J5F4EG
+            name: Floor 1
+        createdAt:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/dateCreated
+          type: string
+          format: date-time
+          description: The date and time of when the user was created.
+          example: '2017-07-21T17:32:28+00:00'
+        modifiedAt:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/dateModified
+          type: string
+          format: date-time
+          description: The date and time of when the user was last modified.
+          example: '2017-07-21T17:32:28+00:00'
+        locale:
+          readOnly: true
+          type: string
+          description: A IETF language tag of the user's preferred locale.
+          example: en-GB
+        timePreference:
+          readOnly: true
+          type: string
+          enum:
+          - default
+          - 24H
+          - 12H
+          example: default
+          description: The user's preferred time format. `default` will follow the user's locale.
+        locationCityName:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The city name of user's usual location.
+          example: London
+        locationCountryCode:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The ISO 3166-1 alpha-2 country code of the user's usual location.
+          example: GB
+        locationLatitude:
+          readOnly: true
+          type: number
+          format: float
+          nullable: true
+          description: The latitude of the user's usual location, based on their city.
+          example: 51.509865
+        locationLongitude:
+          readOnly: true
+          type: number
+          format: float
+          nullable: true
+          description: The longitude of the user's usual location, based on their city.
+          example: -0.118092
+        locationTimezone:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The usual IANA time zone of the user, based on their city.
+          example: Europe/London
+        biography:
+          readOnly: true
+          type: string
+          nullable: true
+          description: A short biography.
+          example: I love 🍕!
+        monogram:
+          readOnly: true
+          type: string
+          description: A two letter identifier made from their full name or email address.
+          example: JS
+    Ulid-public_user:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid.jsonld-public_user:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    User.jsonld-public_user:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@id':
+          readOnly: true
+          type: string
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+        '@type':
+          readOnly: true
+          type: string
+          example: User
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The user's ULID within the Kadence platform.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_user'
+        email:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/email
+          type: string
+          format: email
+          description: The user's email address.
+          example: john.smith@example.com
+        firstName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/givenName
+          type: string
+          description: The user's given name.
+          example: John
+        lastName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/familyName
+          type: string
+          description: The user's family name.
+          example: Smith
+        jobTitle:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/jobTitle
+          type: string
+          nullable: true
+          description: The user's job title.
+          example: Head of Marketing
+        invitationPending:
+          readOnly: true
+          type: boolean
+          description: Has the user signed up to use Kadence or is their invitation to join still pending?
+          example: true
+        preferredFloor:
+          readOnly: true
+          type: object
+          description: The user's preferred floor for booking when going into the office.
+          example:
+            id: 01GTBV1CT3BM8A42SEJ2J5F4EG
+            name: Floor 1
+        createdAt:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/dateCreated
+          type: string
+          format: date-time
+          description: The date and time of when the user was created.
+          example: '2017-07-21T17:32:28+00:00'
+        modifiedAt:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/dateModified
+          type: string
+          format: date-time
+          description: The date and time of when the user was last modified.
+          example: '2017-07-21T17:32:28+00:00'
+        locale:
+          readOnly: true
+          type: string
+          description: A IETF language tag of the user's preferred locale.
+          example: en-GB
+        timePreference:
+          readOnly: true
+          type: string
+          enum:
+          - default
+          - 24H
+          - 12H
+          example: default
+          description: The user's preferred time format. `default` will follow the user's locale.
+        locationCityName:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The city name of user's usual location.
+          example: London
+        locationCountryCode:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The ISO 3166-1 alpha-2 country code of the user's usual location.
+          example: GB
+        locationLatitude:
+          readOnly: true
+          type: number
+          format: float
+          nullable: true
+          description: The latitude of the user's usual location, based on their city.
+          example: 51.509865
+        locationLongitude:
+          readOnly: true
+          type: number
+          format: float
+          nullable: true
+          description: The longitude of the user's usual location, based on their city.
+          example: -0.118092
+        locationTimezone:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The usual IANA time zone of the user, based on their city.
+          example: Europe/London
+        biography:
+          readOnly: true
+          type: string
+          nullable: true
+          description: A short biography.
+          example: I love 🍕!
+        monogram:
+          readOnly: true
+          type: string
+          description: A two letter identifier made from their full name or email address.
+          example: JS
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: OAuth 2.0 client credentials Grant
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.onkadence.co/oauth2/token
+          scopes:
+            public: Public API access

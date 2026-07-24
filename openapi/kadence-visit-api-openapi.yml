@@ -1,0 +1,622 @@
+openapi: 3.1.0
+info:
+  title: Kadence Public Bookable Day Visit API
+  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
+
+
+    ## Regional Environments
+
+
+    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
+
+
+    **EU region: (default)**
+
+
+    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
+
+    - API: [https://api.onkadence.co](https://api.onkadence.co)
+
+
+    **US region:**
+
+
+    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
+
+    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
+
+
+    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
+
+
+    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  version: 1.2.0
+  x-logo:
+    url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
+    backgroundColor: '#FAFAFA'
+    altText: Kadence logo
+servers:
+- url: https://api.onkadence.co
+  description: Production
+- url: https://api.us.onkadence.co
+  description: Production (US)
+security:
+- oauth: []
+tags:
+- name: Visit
+paths:
+  /v1/public/visits:
+    get:
+      operationId: api_v1publicvisits_get_collection
+      tags:
+      - Visit
+      responses:
+        '200':
+          description: Visit collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  hydra:member:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Visit.jsonld-public_visit'
+                  hydra:totalItems:
+                    type: integer
+                    minimum: 0
+                required:
+                - hydra:member
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Visit-public_visit'
+      summary: Get visits
+      description: Get a collection of visits (guest bookings) for your company.
+      parameters:
+      - name: buildingId
+        in: query
+        description: Filter visits by building identifier
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: status
+        in: query
+        description: Filter visits by booking status
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - booked
+          - checkedIn
+          - checkedOut
+          - completed
+          - cancelled
+          - noCheckIn
+        style: form
+        explode: false
+        allowReserved: false
+        example: booked
+      - name: startDateTime[local_before]
+        in: query
+        description: Filter by Visit start date-time on or before this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: endDateTime[local_before]
+        in: query
+        description: Filter by Visit end date-time on or before this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: endDateTime[local_strictly_before]
+        in: query
+        description: Filter by Visit end date-time before this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: endDateTime[local_after]
+        in: query
+        description: Filter by Visit end date-time on or after this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: endDateTime[local_strictly_after]
+        in: query
+        description: Filter by Visit end date-time after this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: endDateTime[before]
+        in: query
+        description: Filter by Visit end date-time on or before this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: endDateTime[strictly_before]
+        in: query
+        description: Filter by Visit end date-time before this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: endDateTime[after]
+        in: query
+        description: Filter by Visit end date-time on or after this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: endDateTime[strictly_after]
+        in: query
+        description: Filter by Visit end date-time after this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T17:00:00'
+      - name: startDateTime[local_strictly_before]
+        in: query
+        description: Filter by Visit start date-time before this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: startDateTime[local_after]
+        in: query
+        description: Filter by Visit start date-time on or after this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: startDateTime[local_strictly_after]
+        in: query
+        description: Filter by Visit start date-time after this date-time (adjusted to building timezone)
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: startDateTime[before]
+        in: query
+        description: Filter by Visit start date-time on or before this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: startDateTime[strictly_before]
+        in: query
+        description: Filter by Visit start date-time before this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: startDateTime[after]
+        in: query
+        description: Filter by Visit start date-time on or after this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: startDateTime[strictly_after]
+        in: query
+        description: Filter by Visit start date-time after this date-time
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: '2024-01-01T09:00:00'
+      - name: page
+        in: query
+        description: The page of visits to get
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+        example: '1'
+      - name: itemsPerPage
+        in: query
+        description: Number of visits to get per page
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+        style: form
+        explode: false
+        allowReserved: false
+        example: '30'
+      deprecated: false
+  /v1/public/visits/{id}:
+    get:
+      operationId: api_v1publicvisits_id_get
+      tags:
+      - Visit
+      responses:
+        '200':
+          description: Visit resource
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Visit.jsonld-public_visit'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Visit-public_visit'
+        '404':
+          description: Resource not found
+      summary: Get a single visit by identifier
+      description: Get a single visit (guest booking) if you know its identifier.
+      parameters:
+      - name: id
+        in: path
+        description: Visit identifier
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+        example: application/ld+json
+      deprecated: false
+components:
+  schemas:
+    Ulid-public_visit:
+      type: object
+      description: ''
+      deprecated: false
+    User-public_visit:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid.jsonld-public_visit:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Visit-public_visit:
+      type: object
+      description: 'Read-only public representation of a visit.
+
+
+        A visit is a guest {@see Booking} viewed through the visits lens. It surfaces the host, building,
+
+        time window and status of the booking, plus the full set of {@see PublicVisitor} attendees that
+
+        belong to it.
+
+
+        The embedded visitors serialise under the shared `public_visit` group, so only their core
+
+        identity/attendance fields appear here — the directory-only fields (visit count + latest visit
+
+        context) carry the `public_visitor` group alone and are omitted from a visit''s `visitors[]` array.
+
+
+        Every group name contains the substring `public` because the public OpenAPI doc command filters
+
+        schema keys on that substring — a group without it is silently dropped from the generated spec.
+
+
+        The `/v1/public/visits` collection + item operations read guest bookings via
+
+        {@see PublicVisitsCollectionDataProvider} / {@see PublicVisitDataProvider}.'
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the visit.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_visit'
+        host:
+          readOnly: true
+          nullable: true
+          description: The IRI of the host who the visit is for.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_visit'
+          - type: 'null'
+        building:
+          readOnly: true
+          type: object
+          nullable: true
+          description: The building the visit takes place in.
+        startDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the beginning of the visit.
+          example: '2017-07-21T17:32:28+00:00'
+        endDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the end of the visit.
+          example: '2017-07-21T17:32:28+00:00'
+        status:
+          readOnly: true
+          type: string
+          enum:
+          - booked
+          - checkedIn
+          - checkedOut
+          - completed
+          - cancelled
+          - noCheckIn
+          description: The current status of the visit.
+          example: booked
+        visitors:
+          readOnly: true
+          type: array
+          description: Every attendee of the visit, including the host/organizer, as visitors.
+    User.jsonld-public_visit:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Visit.jsonld-public_visit:
+      type: object
+      description: 'Read-only public representation of a visit.
+
+
+        A visit is a guest {@see Booking} viewed through the visits lens. It surfaces the host, building,
+
+        time window and status of the booking, plus the full set of {@see PublicVisitor} attendees that
+
+        belong to it.
+
+
+        The embedded visitors serialise under the shared `public_visit` group, so only their core
+
+        identity/attendance fields appear here — the directory-only fields (visit count + latest visit
+
+        context) carry the `public_visitor` group alone and are omitted from a visit''s `visitors[]` array.
+
+
+        Every group name contains the substring `public` because the public OpenAPI doc command filters
+
+        schema keys on that substring — a group without it is silently dropped from the generated spec.
+
+
+        The `/v1/public/visits` collection + item operations read guest bookings via
+
+        {@see PublicVisitsCollectionDataProvider} / {@see PublicVisitDataProvider}.'
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the visit.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_visit'
+        host:
+          readOnly: true
+          nullable: true
+          description: The IRI of the host who the visit is for.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User.jsonld-public_visit'
+          - type: 'null'
+        building:
+          readOnly: true
+          type: object
+          nullable: true
+          description: The building the visit takes place in.
+        startDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the beginning of the visit.
+          example: '2017-07-21T17:32:28+00:00'
+        endDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the end of the visit.
+          example: '2017-07-21T17:32:28+00:00'
+        status:
+          readOnly: true
+          type: string
+          enum:
+          - booked
+          - checkedIn
+          - checkedOut
+          - completed
+          - cancelled
+          - noCheckIn
+          description: The current status of the visit.
+          example: booked
+        visitors:
+          readOnly: true
+          type: array
+          description: Every attendee of the visit, including the host/organizer, as visitors.
+  securitySchemes:
+    oauth:
+      type: oauth2
+      description: OAuth 2.0 client credentials Grant
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.onkadence.co/oauth2/token
+          scopes:
+            public: Public API access
