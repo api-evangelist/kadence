@@ -1,25 +1,385 @@
 aid: kadence
 name: Kadence
-description: Kadence is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Kadence is a workplace management platform for hybrid work, helping organizations
+  coordinate people, spaces, and workplace strategy through desk and room booking,
+  visitor management, space management, and workplace analytics. Its Public API
+  (OpenAPI 3.1, v1.2.0) lets applications read and manage buildings, floors,
+  neighborhoods, spaces, bookings, check-ins and check-outs, users, visits, and
+  visitors. The API is an API Platform (Hydra / JSON-LD) service secured with
+  OAuth 2.0 client-credentials (scope "public"), with production hosts at
+  api.onkadence.co and api.us.onkadence.co. Kadence was surfaced as a Techstars
+  portfolio company and enriched into the API Evangelist network from its public
+  developer surface.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kadence.co/wp-content/uploads/2025/05/kadence-social-share-image.png
 url: https://raw.githubusercontent.com/api-evangelist/kadence/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: active
+x-tier-reason: enriched-from-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Workplace
+- Hybrid Work
+- Desk Booking
+- Room Booking
+- Space Management
+- Visitor Management
+- Workplace Analytics
+- Facilities
+- OAuth
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: kadence:kadence-bookable-day-api
+  name: Kadence Bookable Day API
+  description: The Bookable Day API from Kadence — 2 operation(s) for bookable day.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Bookable Day
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-bookable-day-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-bookable-onsite-pass-api
+  name: Kadence Bookable Onsite Pass API
+  description: The Bookable Onsite Pass API from Kadence — 1 operation(s) for bookable onsite pass.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Bookable Onsite Pass
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-bookable-onsite-pass-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-bookable-space-api
+  name: Kadence Bookable Space API
+  description: The Bookable Space API from Kadence — 1 operation(s) for bookable space.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Bookable Space
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-bookable-space-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-booking-api
+  name: Kadence Booking API
+  description: The Booking API from Kadence — 6 operation(s) for booking.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Booking
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-booking-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-building-api
+  name: Kadence Building API
+  description: The Building API from Kadence — 2 operation(s) for building.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Building
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-building-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-floor-api
+  name: Kadence Floor API
+  description: The Floor API from Kadence — 2 operation(s) for floor.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Floor
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-floor-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-neighborhood-api
+  name: Kadence Neighborhood API
+  description: The Neighborhood API from Kadence — 2 operation(s) for neighborhood.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Neighborhood
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-neighborhood-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-space-api
+  name: Kadence Space API
+  description: The Space API from Kadence — 2 operation(s) for space.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Space
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-space-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-user-api
+  name: Kadence User API
+  description: The User API from Kadence — 3 operation(s) for user.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-user-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-visit-api
+  name: Kadence Visit API
+  description: The Visit API from Kadence — 2 operation(s) for visit.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Visit
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-visit-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
+- aid: kadence:kadence-visitor-api
+  name: Kadence Visitor API
+  description: The Visitor API from Kadence — 2 operation(s) for visitor.
+  humanURL: https://kadence.co/hybrid-workplace-api/
+  baseURL: https://api.onkadence.co
+  tags:
+  - Visitor
+  properties:
+  - type: OpenAPI
+    url: openapi/kadence-visitor-api-openapi.yml
+  - type: APIReference
+    url: https://api.kadence.co/
+  - type: Authentication
+    url: authentication/kadence-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kadence-scopes.yml
+  - type: Conventions
+    url: conventions/kadence-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kadence-problem-types.yml
+  - type: DataModel
+    url: data-model/kadence-data-model.yml
+  - type: AgenticAccess
+    url: agentic-access/kadence-agentic-access.yml
 common:
 - type: Website
   url: https://kadence.co/
+- type: DeveloperPortal
+  url: https://help.kadence.co/kb/en/api-318752
+- type: Documentation
+  url: https://help.kadence.co/kb/en/api-318752
+- type: APIReference
+  url: https://api.kadence.co/
+- type: GettingStarted
+  url: https://help.kadence.co/kb/en/guide/api-getting-started-developer-guide-yUYh7DBxBW/
+- type: Support
+  url: https://help.kadence.co
+- type: Blog
+  url: https://kadence.co/news/
+- type: GitHubOrganization
+  url: https://github.com/wearekadence
+- type: SourceCode
+  url: https://github.com/wearekadence/kadence-public-api-examples
+- type: Integrations
+  url: https://kadence.co/hybrid-workplace-integrations/
+- type: Pricing
+  url: https://kadence.co/pricing/
+- type: SignUp
+  url: https://app.onkadence.co
+- type: TermsOfService
+  url: https://kadence.co/terms/
+- type: PrivacyPolicy
+  url: https://kadence.co/privacy/
+- type: StatusPage
+  url: https://status.kadence.co
+- type: Compliance
+  url: https://kadence.co/security/
+- type: TrustCenter
+  url: security/kadence-trust-center.yml
+- type: Authentication
+  url: authentication/kadence-authentication.yml
+- type: OAuthScopes
+  url: scopes/kadence-scopes.yml
+- type: Conventions
+  url: conventions/kadence-conventions.yml
+- type: ErrorCatalog
+  url: errors/kadence-problem-types.yml
+- type: Conformance
+  url: conformance/kadence-conformance.yml
+- type: Lifecycle
+  url: lifecycle/kadence-lifecycle.yml
+- type: DataModel
+  url: data-model/kadence-data-model.yml
+- type: MCPServer
+  url: mcp/kadence-mcp.yml
+- type: LLMsTxt
+  url: llms/kadence-llms.txt
+- type: WellKnown
+  url: well-known/kadence-well-known.yml
+- type: Packages
+  url: packages/kadence-packages.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/kadence-agentic-access.yml
+- type: DomainSecurity
+  url: security/kadence-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

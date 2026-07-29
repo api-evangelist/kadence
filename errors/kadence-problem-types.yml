@@ -1,0 +1,47 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/kadence-public-api-openapi.yml
+format: hydra
+envelope:
+  media_type: application/ld+json
+  fields: ['@type', 'hydra:title', 'hydra:description', 'violations[]']
+  note: >-
+    Kadence is an API Platform (Symfony) service; errors are returned as Hydra /
+    JSON-LD documents, not RFC 9457 problem+json. 422 responses carry a
+    ConstraintViolationList with per-field violations.
+problems:
+  - status: 400
+    title: Bad request
+    meaning: Malformed request syntax or invalid parameters.
+    source_operations:
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcancel_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcheck-in_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcheck-out_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicusers_id_patch
+      - openapi/kadence-public-api-openapi.yml#api_v1publicusers_idphoto_post
+  - status: 404
+    title: Resource not found
+    meaning: The requested resource does not exist or is not visible to the caller.
+    source_operations:
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbuildings_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicfloors_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicneighborhoods_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicspaces_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicusers_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicvisits_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicvisitors_id_get
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookable-onsite-passes_get
+  - status: 422
+    title: Unprocessable entity (validation failed)
+    meaning: >-
+      The request was well-formed but failed domain validation; body carries a
+      ConstraintViolationList of field-level violations.
+    source_operations:
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcancel_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcheck-in_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcheck-out_post
+      - openapi/kadence-public-api-openapi.yml#api_v1publicusers_id_patch
+      - openapi/kadence-public-api-openapi.yml#api_v1publicusers_idphoto_post

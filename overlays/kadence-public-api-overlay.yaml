@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Kadence Public API
+  version: 1.0.0
+extends: openapi/kadence-public-api-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-19'
+      x-apievangelist-provider: kadence
+      x-apievangelist-auth: oauth2-client-credentials
+      x-apievangelist-conventions: conventions/kadence-conventions.yml
+      x-apievangelist-errors: errors/kadence-problem-types.yml
+      x-apievangelist-data-model: data-model/kadence-data-model.yml
+  - target: $.info
+    update:
+      x-apievangelist-media-types: [application/ld+json, text/csv]
+      x-apievangelist-pagination: hydra (page + itemsPerPage)
+      x-apievangelist-compliance: [SOC 2 Type II, ISO 27001, Cyber Essentials, GDPR, CCPA]

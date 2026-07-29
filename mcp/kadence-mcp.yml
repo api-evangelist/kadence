@@ -1,0 +1,91 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/kadence-public-api-openapi.yml
+note: Candidate MCP tool list derived one-per-operation from the Kadence Public API OpenAPI. No official hosted MCP server
+  was found (searched docs, npm @modelcontextprotocol, MCP registries).
+server:
+  name: kadence
+  transport: stdio
+tools:
+- name: api_v1publicbookable-days_get_collection
+  description: Get a collection of Bookable Days
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookable-days_get_collection
+- name: api_v1publicbookable-days_id_get
+  description: Retrieves a Bookable Day resource.
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookable-days_id_get
+- name: api_v1publicbookable-onsite-passes_get
+  description: Get a description of onsite availability for a building in a time period
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookable-onsite-passes_get
+- name: api_v1publicbookable-spaces_get_collection
+  description: Get Bookable Spaces
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookable-spaces_get_collection
+- name: api_v1publicbookings_get_collection
+  description: Get a collection of bookings
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookings_get_collection
+- name: api_v1publicbookings_post
+  description: Create a booking
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookings_post
+- name: api_v1publicbookings_id_get
+  description: Get a single booking by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookings_id_get
+- name: api_v1publicbookings_idcancel_post
+  description: Cancel a booking
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcancel_post
+- name: api_v1publicbookings_idcheck-in_post
+  description: Check in to a booking
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcheck-in_post
+- name: api_v1publicbookings_idcheck-out_post
+  description: Check out of a booking
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbookings_idcheck-out_post
+- name: api_v1publicusers_idbookings_get_collection
+  description: Get a user's bookings
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicusers_idbookings_get_collection
+- name: api_v1publicbuildings_get_collection
+  description: Get buildings
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbuildings_get_collection
+- name: api_v1publicbuildings_id_get
+  description: Get a single building by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicbuildings_id_get
+- name: api_v1publicfloors_get_collection
+  description: Get a collection of floors
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicfloors_get_collection
+- name: api_v1publicfloors_id_get
+  description: Get a single floor by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicfloors_id_get
+- name: api_v1publicneighborhoods_get_collection
+  description: Get neighborhoods
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicneighborhoods_get_collection
+- name: api_v1publicneighborhoods_id_get
+  description: Get a single neighborhood by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicneighborhoods_id_get
+- name: api_v1publicspaces_get_collection
+  description: Get spaces
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicspaces_get_collection
+- name: api_v1publicspaces_id_get
+  description: Get a single space by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicspaces_id_get
+- name: api_v1publicusers_get_collection
+  description: Get users
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicusers_get_collection
+- name: api_v1publicusers_id_get
+  description: Get a single user by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicusers_id_get
+- name: api_v1publicusers_id_patch
+  description: Update a user
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicusers_id_patch
+- name: api_v1publicusers_idphoto_post
+  description: Update a user profile picture
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicusers_idphoto_post
+- name: api_v1publicvisits_get_collection
+  description: Get visits
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicvisits_get_collection
+- name: api_v1publicvisits_id_get
+  description: Get a single visit by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicvisits_id_get
+- name: api_v1publicvisitors_get_collection
+  description: Get visitors
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicvisitors_get_collection
+- name: api_v1publicvisitors_id_get
+  description: Get a single visitor by identifier
+  source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicvisitors_id_get

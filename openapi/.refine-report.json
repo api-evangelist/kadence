@@ -1,0 +1,36 @@
+{
+  "provider": "kadence",
+  "sources": [
+    "kadence-bookable-day-api-openapi.yml",
+    "kadence-bookable-onsite-pass-api-openapi.yml",
+    "kadence-bookable-space-api-openapi.yml",
+    "kadence-booking-api-openapi.yml",
+    "kadence-building-api-openapi.yml",
+    "kadence-floor-api-openapi.yml",
+    "kadence-neighborhood-api-openapi.yml",
+    "kadence-space-api-openapi.yml",
+    "kadence-user-api-openapi.yml",
+    "kadence-visit-api-openapi.yml",
+    "kadence-visitor-api-openapi.yml"
+  ],
+  "outputs": [
+    "kadence-bookable-day-api-openapi.yml",
+    "kadence-bookable-onsite-pass-api-openapi.yml",
+    "kadence-bookable-space-api-openapi.yml",
+    "kadence-booking-api-openapi.yml",
+    "kadence-building-api-openapi.yml",
+    "kadence-floor-api-openapi.yml",
+    "kadence-neighborhood-api-openapi.yml",
+    "kadence-space-api-openapi.yml",
+    "kadence-user-api-openapi.yml",
+    "kadence-visit-api-openapi.yml",
+    "kadence-visitor-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "kadence-user-api-openapi.yml: dangling $ref: #/components/schemas/User"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

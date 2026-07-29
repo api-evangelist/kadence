@@ -1,0 +1,16 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/kadence-public-api-openapi.yml
+skills:
+  - file: kadence-check-in-user.md
+    name: Check a user into their desk booking
+    api: openapi/kadence-public-api-openapi.yml
+    operations: [api_v1publicusers_get_collection, api_v1publicusers_idbookings_get_collection, api_v1publicbookings_idcheck-in_post, api_v1publicbookings_idcheck-out_post]
+  - file: kadence-manage-booking.md
+    name: Create and cancel a desk booking
+    api: openapi/kadence-public-api-openapi.yml
+    operations: [api_v1publicbookable-spaces_get_collection, api_v1publicbookings_post, api_v1publicbookings_id_get, api_v1publicbookings_idcancel_post]
+  - file: kadence-workplace-occupancy.md
+    name: Read workplace occupancy and space inventory
+    api: openapi/kadence-public-api-openapi.yml
+    operations: [api_v1publicbuildings_get_collection, api_v1publicfloors_get_collection, api_v1publicspaces_get_collection, api_v1publicbookings_get_collection]

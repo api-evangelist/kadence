@@ -1,0 +1,77 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/kadence-public-api-openapi.yml
+notes: >-
+  Entity-relationship graph derived from the Kadence Public API OpenAPI 3.1
+  ($ref links, id-reference fields, and sub-resource path nesting). Ids are ULIDs.
+identifier_format: ULID
+entities:
+  - name: Building
+    path: /v1/public/buildings
+    key: id
+  - name: Floor
+    path: /v1/public/floors
+    key: id
+  - name: Neighborhood
+    path: /v1/public/neighborhoods
+    key: id
+  - name: Space
+    path: /v1/public/spaces
+    key: id
+  - name: BookableSpace
+    path: /v1/public/bookable-spaces
+    key: id
+  - name: BookableDay
+    path: /v1/public/bookable-days
+    key: id
+  - name: BookableOnsitePass
+    path: /v1/public/bookable-onsite-passes
+    key: id
+  - name: Booking
+    path: /v1/public/bookings
+    key: id
+  - name: User
+    path: /v1/public/users
+    key: id
+  - name: Visit
+    path: /v1/public/visits
+    key: id
+  - name: Visitor
+    path: /v1/public/visitors
+    key: id
+relationships:
+  - from: Booking
+    to: Building
+    type: belongs_to
+    via: building
+    evidence: Booking schema has a `building` $ref (openapi)
+  - from: User
+    to: Booking
+    type: has_many
+    via: /v1/public/users/{id}/bookings
+    evidence: sub-resource collection path
+  - from: Building
+    to: Floor
+    type: has_many
+    via: building (spatial hierarchy)
+    evidence: domain hierarchy (building > floor)
+  - from: Floor
+    to: Neighborhood
+    type: has_many
+    via: floor
+    evidence: domain hierarchy (floor > neighborhood)
+  - from: Floor
+    to: Space
+    type: has_many
+    via: floor
+    evidence: domain hierarchy (floor > space)
+  - from: Booking
+    to: Space
+    type: belongs_to
+    via: space
+    evidence: a booking reserves a space (bookable-spaces surface)
+  - from: Visit
+    to: Visitor
+    type: belongs_to
+    via: visitor
+    evidence: visits reference visitors (visitor management)

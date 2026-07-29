@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source:
+  - openapi/kadence-public-api-openapi.yml
+  - https://api.kadence.co/
+  - https://status.kadence.co
+versioning:
+  scheme: uri-path
+  current: v1
+  spec_version: 1.2.0
+  docs: https://api.kadence.co/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation/sunset policy found; no operations flagged deprecated in the OpenAPI.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.kadence.co
+deprecated_operations: []

@@ -1,0 +1,16 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/wearekadence/kadence-public-api-examples
+note: >-
+  Kadence publishes no installable client SDK on a public registry (checked npm,
+  PyPI). It ships an official reference client and example app instead. The
+  unrelated npm package "kadence" is a Kademlia DHT library, not this company.
+packages:
+  - language: javascript
+    registry: github
+    kind: reference-client
+    name: kadence-public-api-examples
+    url: https://github.com/wearekadence/kadence-public-api-examples
+    install: git clone https://github.com/wearekadence/kadence-public-api-examples.git
+    official: true
+    note: First-party Node.js/Express reference app with a Kadence.js client (OAuth2 client-credentials + bookings/users/buildings/floors/spaces).

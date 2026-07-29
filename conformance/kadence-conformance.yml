@@ -1,0 +1,50 @@
+generated: '2026-07-19'
+method: searched
+source:
+  - openapi/kadence-public-api-openapi.yml
+  - https://kadence.co/security/
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OpenAPI securityScheme type oauth2 (clientCredentials flow, token URL login.onkadence.co/oauth2/token)
+  - id: oauth2-client-credentials
+    conforms: true
+    evidence: clientCredentials grant with scope "public"
+  - id: json-ld
+    conforms: true
+    evidence: responses served as application/ld+json
+  - id: hydra
+    conforms: true
+    evidence: API Platform Hydra collections (hydra:member / hydra:totalItems / hydra:view) and Hydra error documents
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors use Hydra/JSON-LD, not application/problem+json
+  - id: pagination
+    conforms: true
+    evidence: Hydra pagination via page + itemsPerPage
+  - id: idempotency
+    conforms: false
+    evidence: no idempotency-key contract documented
+  - id: soc2-type-ii
+    conforms: true
+    evidence: kadence.co/security states "SOC 2 Type II" compliance (monitored via Drata)
+  - id: iso-27001
+    conforms: true
+    evidence: kadence.co/security cites ISO 27001 certified infrastructure partners
+  - id: cyber-essentials
+    conforms: true
+    evidence: kadence.co/security cites Cyber Essentials certification
+  - id: gdpr
+    conforms: true
+    evidence: kadence.co/security states GDPR compliance
+  - id: ccpa
+    conforms: true
+    evidence: kadence.co/security states CCPA compliance
+  - id: owasp-masvs
+    conforms: true
+    evidence: mobile apps tested to OWASP MASVS per kadence.co/security
+compliance_program:
+  url: https://kadence.co/security/
+  trust_center: https://trust.kadence.co
+  certifications: [SOC 2 Type II, ISO 27001, Cyber Essentials, GDPR, CCPA, OWASP MASVS]
+  monitoring: Drata continuous monitoring; annual third-party penetration testing

@@ -1,0 +1,74 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.kadence.co/
+notes: >-
+  Cross-cutting request/response semantics for the Kadence Public API, grounded in
+  the published OpenAPI 3.1 (https://api.kadence.co/) and the official reference
+  client (github.com/wearekadence/kadence-public-api-examples). The API is built on
+  API Platform (Symfony) and exposes Hydra / JSON-LD collections.
+authentication:
+  style: oauth2-client-credentials
+  token_endpoint: https://login.onkadence.co/oauth2/token
+  grant: client_credentials
+  scope: public
+  request_header: 'Authorization: Bearer <access_token>'
+  ref: authentication/kadence-authentication.yml
+base_urls:
+  - https://api.onkadence.co
+  - https://api.us.onkadence.co
+versioning:
+  scheme: uri-path
+  current: v1
+  spec_version: 1.2.0
+  ref: lifecycle/kadence-lifecycle.yml
+media_types:
+  request: application/json
+  response:
+    - application/ld+json      # Hydra / JSON-LD (default)
+    - text/csv                 # collection export
+pagination:
+  style: hydra
+  params:
+    page: page                 # 1-based page number
+    page_size: itemsPerPage    # items per page
+  response_fields:
+    total: 'hydra:totalItems'
+    members: 'hydra:member'
+    navigation: 'hydra:view (hydra:first/last/next/previous)'
+filtering:
+  style: api-platform
+  ordering: 'order[<field>]=asc|desc'
+  date_operators:
+    - '<field>[before]'
+    - '<field>[after]'
+    - '<field>[strictly_before]'
+    - '<field>[strictly_after]'
+    - '<field>[local_before]'
+    - '<field>[local_after]'
+    - '<field>[local_strictly_before]'
+    - '<field>[local_strictly_after]'
+  examples:
+    - 'startDateTime[after]=2026-07-19T00:00:00Z'
+    - 'order[startDateTime]=asc'
+    - 'email=<exact match>'
+identifiers:
+  format: ULID
+  note: Resource ids are ULIDs (see the Ulid schema in the OpenAPI).
+error_envelope:
+  style: hydra
+  media_type: application/ld+json
+  fields:
+    - '@type (hydra:Error / ConstraintViolationList)'
+    - 'hydra:title'
+    - 'hydra:description'
+    - 'violations[] (field, message) for 422 validation errors'
+  ref: errors/kadence-problem-types.yml
+idempotency:
+  supported: false
+  note: >-
+    No idempotency-key header or parameter is documented in the OpenAPI or the
+    reference client. Write operations (booking create/cancel/check-in/check-out)
+    are not advertised as idempotent.
+rate_limiting:
+  documented: false
+  note: No rate-limit headers or published limits found in the spec or public docs.
