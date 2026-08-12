@@ -316,6 +316,8 @@ apis:
   - type: AgenticAccess
     url: agentic-access/kadence-agentic-access.yml
 common:
+- type: Overlay
+  url: overlays/kadence-public-api-overlay.yaml
 - type: Website
   url: https://kadence.co/
 - type: DeveloperPortal
