@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day Bookable Onsite Pass API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bookable Onsite Pass",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a description of onsite availability for a building in a time period",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/bookable-onsite-passes",
+            "params": [
+              {
+                "name": "buildingId",
+                "value": "01CBCV1CT3BM8A52SEJ2J5F4EB",
+                "type": "query",
+                "description": "The building identifier to get onsite pass information for"
+              },
+              {
+                "name": "startDateTime",
+                "value": "2023-07-03T09:00:00",
+                "type": "query",
+                "description": "Proposed UTC booking start date time in format YYYY-MM-DDThh:mm:ss"
+              },
+              {
+                "name": "endDateTime",
+                "value": "2023-07-03T09:00:00",
+                "type": "query",
+                "description": "Proposed UTC booking end date time in format YYYY-MM-DDThh:mm:ss"
+              }
+            ]
+          },
+          "docs": "Get a description of onsite availability for a building in a time period"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

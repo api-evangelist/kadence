@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "e2b705c5-82c6-4a3a-8f01-a6537795aeb8",
+      "name": "Bookable Day",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72c764a5-6133-4230-bcc3-ab8dd562b50e",
+          "name": "Get a collection of Bookable Days",
+          "request": {
+            "name": "Get a collection of Bookable Days",
+            "description": {
+              "content": "Get a list of all days that a booking can be made for specific user in a specific building.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookable-days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buildingId",
+                  "value": "<string>",
+                  "description": "(Required) The building identifier to get a collection of bookable days for."
+                },
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) The user identifier to get a collection of bookable days for."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1996560c-d2d9-4a05-af73-c9f8ed2e7328",
+              "name": "Bookable Day collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookable-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buildingId",
+                      "value": "01CBCV1CT3BM8A52SEJ2J5F4EB"
+                    },
+                    {
+                      "key": "userId",
+                      "value": "01CADV1CT3BM8A52SEJ2J5F4EB"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"start\": \"2023-07-01T09:00:00+00:00\",\n      \"end\": \"2023-07-01T17:00:00+00:00\"\n    },\n    {\n      \"start\": \"2023-07-01T09:00:00+00:00\",\n      \"end\": \"2023-07-01T17:00:00+00:00\"\n    }\n  ],\n  \"hydra:totalItems\": 5888\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a72db63f-2ce7-4c31-a944-de7f76193cab",
+          "name": "Retrieves a Bookable Day resource.",
+          "request": {
+            "name": "Retrieves a Bookable Day resource.",
+            "description": {
+              "content": "Retrieves a Bookable Day resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookable-days",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Bookable Day identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b521438b-f87f-4f42-af25-e3b5ca2fad59",
+              "name": "Bookable Day resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookable-days",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Bookable Day identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fa4e287-e404-4131-ab11-baa5a066a408",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookable-days",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Bookable Day identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.onkadence.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "public"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.onkadence.co/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cf823beb-1a8e-4dd5-bf6c-049805a55d6e",
+    "name": "Kadence Public Bookable Day API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you'll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).\n\n## Regional Environments\n\nKadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you're using the correct base URLs for your region.\n\n**EU region: (default)**\n\n- Auth: [https://login.onkadence.co](https://login.onkadence.co)\n- API: [https://api.onkadence.co](https://api.onkadence.co)\n\n**US region:**\n\n- Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)\n- API: [https://api.us.onkadence.co](https://api.us.onkadence.co)\n\nYour region is determined by where your Kadence account was set up. If you're unsure which region you're on, contact your account administrator or reach out to Kadence support.\n\nUse the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.",
+      "type": "text/plain"
+    }
+  }
+}

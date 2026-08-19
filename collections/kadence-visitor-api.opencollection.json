@@ -1,0 +1,217 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day Visitor API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Visitor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get visitors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/visitors",
+            "params": [
+              {
+                "name": "email",
+                "value": "john.smith@example.com",
+                "type": "query",
+                "description": "Partial match of visitors by email address"
+              },
+              {
+                "name": "emailExact",
+                "value": "john.smith@example.com",
+                "type": "query",
+                "description": "Exact match of visitors by email address"
+              },
+              {
+                "name": "firstName",
+                "value": "John",
+                "type": "query",
+                "description": "Filter visitors by first name. Matches the visitor's display name (the serialized firstName may differ, as it prefers a linked User's name for internal users)."
+              },
+              {
+                "name": "lastName",
+                "value": "Smith",
+                "type": "query",
+                "description": "Filter visitors by last name. Matches the visitor's display name (the serialized lastName may differ, as it prefers a linked User's name for internal users)."
+              },
+              {
+                "name": "buildingId",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Filter visitors by the building of any of their visits"
+              },
+              {
+                "name": "status",
+                "value": "accepted",
+                "type": "query",
+                "description": "Filter by the visitor's RSVP/attendance status (accepted, declined, tentatively_accepted, not_responded, organizer, none) on any of their visits. This is the attendee response status, distinct from the visit's booking lifecycle status. To filter by the visit's booking status instead, use visitStatus. (Note: unlike /visits, where status IS the booking status, on /visitors status is the RSVP status.)"
+              },
+              {
+                "name": "visitStatus",
+                "value": "checkedIn",
+                "type": "query",
+                "description": "Filter by the visit's booking status (booked, checkedIn, checkedOut, completed, cancelled, noCheckIn) on any of their visits. This is the booking lifecycle status, distinct from the visitor's RSVP status filter (status). This is the equivalent of the status filter on /visits."
+              },
+              {
+                "name": "startDateTime[local_before]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_before]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_strictly_before]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_after]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_strictly_after]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[before]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time on or before this date-time"
+              },
+              {
+                "name": "endDateTime[strictly_before]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time before this date-time"
+              },
+              {
+                "name": "endDateTime[after]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time on or after this date-time"
+              },
+              {
+                "name": "endDateTime[strictly_after]",
+                "value": "2024-01-01T17:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit end date-time after this date-time"
+              },
+              {
+                "name": "startDateTime[local_strictly_before]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[local_after]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[local_strictly_after]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[before]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time on or before this date-time"
+              },
+              {
+                "name": "startDateTime[strictly_before]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time before this date-time"
+              },
+              {
+                "name": "startDateTime[after]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time on or after this date-time"
+              },
+              {
+                "name": "startDateTime[strictly_after]",
+                "value": "2024-01-01T09:00:00",
+                "type": "query",
+                "description": "Filter by Visitor visit start date-time after this date-time"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "The page of visitors to get"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "30",
+                "type": "query",
+                "description": "Number of visitors to get per page"
+              }
+            ]
+          },
+          "docs": "Get a deduplicated directory of everyone who has visited your company as a guest."
+        },
+        {
+          "info": {
+            "name": "Get a single visitor by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/visitors/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "Visitor identifier"
+              }
+            ]
+          },
+          "docs": "Get a single visitor if you know the identifier of any of their visits."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

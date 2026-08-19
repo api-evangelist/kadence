@@ -1,0 +1,341 @@
+{
+  "item": [
+    {
+      "id": "5f21ecac-c6b0-4713-a656-f5b47e50d601",
+      "name": "Neighborhood",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f6ec857-89c6-41a5-88c7-f84a599dbb53",
+          "name": "Get neighborhoods",
+          "request": {
+            "name": "Get neighborhoods",
+            "description": {
+              "content": "Get a list of all the neighborhoods within your company from all the floors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "neighborhoods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buildingId",
+                  "value": "<string>",
+                  "description": "Filter by building identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "floorId",
+                  "value": "<string>",
+                  "description": "Filter by floor identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The page of neighborhoods to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "<integer>",
+                  "description": "Number of neighborhoods to get per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f2e47a4-7456-4630-9d8d-be58ddb18908",
+              "name": "Neighborhood collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "neighborhoods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buildingId",
+                      "value": "01CBCV1CT3BM8A52SEJ2J5F4EB"
+                    },
+                    {
+                      "key": "floorId",
+                      "value": "01H57KGTPZ50STX5N62Q991JNM"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"/v1/public/neighborhoods/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Neighborhood\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Sales\"\n    },\n    {\n      \"@id\": \"/v1/public/neighborhoods/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Neighborhood\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Sales\"\n    }\n  ],\n  \"hydra:totalItems\": 7905\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d068eb58-8afc-4564-a7c6-67fb47ef1a56",
+          "name": "Get a single neighborhood by identifier",
+          "request": {
+            "name": "Get a single neighborhood by identifier",
+            "description": {
+              "content": "Get a neighborhood if you know it's identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "neighborhoods",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Neighborhood identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "242719c5-b95c-4bd9-adeb-e4b89107489c",
+              "name": "Neighborhood resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "neighborhoods",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Neighborhood identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/neighborhoods/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"Neighborhood\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"name\": \"Sales\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c0aa7d9-7e55-4b17-8f93-e46934af0b69",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "neighborhoods",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Neighborhood identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.onkadence.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "public"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.onkadence.co/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7ee4a62b-464e-4a68-b1a5-2630fc0fd569",
+    "name": "Kadence Public Bookable Day Neighborhood API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you'll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).\n\n## Regional Environments\n\nKadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you're using the correct base URLs for your region.\n\n**EU region: (default)**\n\n- Auth: [https://login.onkadence.co](https://login.onkadence.co)\n- API: [https://api.onkadence.co](https://api.onkadence.co)\n\n**US region:**\n\n- Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)\n- API: [https://api.us.onkadence.co](https://api.us.onkadence.co)\n\nYour region is determined by where your Kadence account was set up. If you're unsure which region you're on, contact your account administrator or reach out to Kadence support.\n\nUse the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.",
+      "type": "text/plain"
+    }
+  }
+}

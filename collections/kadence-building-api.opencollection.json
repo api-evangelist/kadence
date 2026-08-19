@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day Building API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Building",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get buildings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/buildings",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "GB",
+                "type": "query",
+                "description": "Filter buildings by the ISO 3166-1 alpha-2 code of the country where the building is located"
+              },
+              {
+                "name": "city",
+                "value": "London",
+                "type": "query",
+                "description": "Filter buildings by the city where the building is located"
+              },
+              {
+                "name": "name",
+                "value": "Bell Yard",
+                "type": "query",
+                "description": "Filter buildings by name"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "The page of buildings to get"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "30",
+                "type": "query",
+                "description": "Number of buildings to get per page"
+              },
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Building identifier"
+              }
+            ]
+          },
+          "docs": "Get a list of all the buildings within your company."
+        },
+        {
+          "info": {
+            "name": "Get a single building by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/buildings/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "Building identifier"
+              }
+            ]
+          },
+          "docs": "Get a single building if you know it's identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

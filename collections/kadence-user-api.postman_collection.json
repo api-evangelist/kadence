@@ -1,0 +1,965 @@
+{
+  "item": [
+    {
+      "id": "71f77b86-5b51-44e0-b0a1-1543d139a812",
+      "name": "User",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2061b908-8efb-4f52-80a5-73d377c0d4e5",
+          "name": "Get users",
+          "request": {
+            "name": "Get users",
+            "description": {
+              "content": "Get a list of all the users within your company.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Partial match of users by email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailExact",
+                  "value": "<string>",
+                  "description": "Exact match of users by email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>",
+                  "description": "Filter users by first name"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>",
+                  "description": "Filter users by last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The page of users to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "<integer>",
+                  "description": "Number of users to get per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "User identifier"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71b63a79-1b93-47dc-b638-801e904060ac",
+              "name": "User collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "emailExact",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "John"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "Smith"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "01GTBV1CT3BM8A42SEJ2J5F4EG"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"/v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"User\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"email\": \"john.smith@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"jobTitle\": \"Head of Marketing\",\n      \"invitationPending\": true,\n      \"preferredFloor\": {\n        \"name\": \"Floor 1\"\n      },\n      \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n      \"modifiedAt\": \"2017-07-21T17:32:28+00:00\",\n      \"locale\": \"en-GB\",\n      \"timePreference\": \"default\",\n      \"locationCityName\": \"London\",\n      \"locationCountryCode\": \"GB\",\n      \"locationLatitude\": 51.509865,\n      \"locationLongitude\": -0.118092,\n      \"locationTimezone\": \"Europe/London\",\n      \"biography\": \"I love 🍕!\",\n      \"monogram\": \"JS\"\n    },\n    {\n      \"@id\": \"/v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"User\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"email\": \"john.smith@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"jobTitle\": \"Head of Marketing\",\n      \"invitationPending\": true,\n      \"preferredFloor\": {\n        \"name\": \"Floor 1\"\n      },\n      \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n      \"modifiedAt\": \"2017-07-21T17:32:28+00:00\",\n      \"locale\": \"en-GB\",\n      \"timePreference\": \"default\",\n      \"locationCityName\": \"London\",\n      \"locationCountryCode\": \"GB\",\n      \"locationLatitude\": 51.509865,\n      \"locationLongitude\": -0.118092,\n      \"locationTimezone\": \"Europe/London\",\n      \"biography\": \"I love 🍕!\",\n      \"monogram\": \"JS\"\n    }\n  ],\n  \"hydra:totalItems\": 3020\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f7c3b04-f1eb-4172-8a8c-18dd0bfe9403",
+          "name": "Get a single user by identifier",
+          "request": {
+            "name": "Get a single user by identifier",
+            "description": {
+              "content": "Get a single user if you know their identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e57f0cdb-a18e-4aa3-9908-87458ed83c9b",
+              "name": "User resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"User\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"email\": \"john.smith@example.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"jobTitle\": \"Head of Marketing\",\n  \"invitationPending\": true,\n  \"preferredFloor\": {\n    \"name\": \"Floor 1\"\n  },\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"modifiedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"locale\": \"en-GB\",\n  \"timePreference\": \"default\",\n  \"locationCityName\": \"London\",\n  \"locationCountryCode\": \"GB\",\n  \"locationLatitude\": 51.509865,\n  \"locationLongitude\": -0.118092,\n  \"locationTimezone\": \"Europe/London\",\n  \"biography\": \"I love 🍕!\",\n  \"monogram\": \"JS\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "571ca514-ef2b-4877-9cfa-33f1fcaefea4",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f25f3d54-a2d5-4bdb-a298-c8662ea85e1d",
+          "name": "Update a user",
+          "request": {
+            "name": "Update a user",
+            "description": {
+              "content": "Update user information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/merge-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"biography\": \"<string>\",\n  \"locationTimezone\": \"<string>\",\n  \"locationCountryCode\": \"<string>\",\n  \"locationCityName\": \"<string>\",\n  \"locationLatitude\": \"<float>\",\n  \"locationLongitude\": \"<float>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "074d2ff7-791c-442b-a391-4ddc5b0870fc",
+              "name": "User resource updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/merge-patch+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"biography\": \"<string>\",\n  \"locationTimezone\": \"<string>\",\n  \"locationCountryCode\": \"<string>\",\n  \"locationCityName\": \"<string>\",\n  \"locationLatitude\": \"<float>\",\n  \"locationLongitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"User\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"email\": \"john.smith@example.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"jobTitle\": \"Head of Marketing\",\n  \"invitationPending\": true,\n  \"preferredFloor\": {\n    \"name\": \"Floor 1\"\n  },\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"modifiedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"locale\": \"en-GB\",\n  \"timePreference\": \"default\",\n  \"locationCityName\": \"London\",\n  \"locationCountryCode\": \"GB\",\n  \"locationLatitude\": 51.509865,\n  \"locationLongitude\": -0.118092,\n  \"locationTimezone\": \"Europe/London\",\n  \"biography\": \"I love 🍕!\",\n  \"monogram\": \"JS\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26784ee1-f05f-4c85-ac1a-97d93f04203f",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/merge-patch+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"biography\": \"<string>\",\n  \"locationTimezone\": \"<string>\",\n  \"locationCountryCode\": \"<string>\",\n  \"locationCityName\": \"<string>\",\n  \"locationLatitude\": \"<float>\",\n  \"locationLongitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd2b4e73-028f-449e-96ec-55010560abc1",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/merge-patch+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"biography\": \"<string>\",\n  \"locationTimezone\": \"<string>\",\n  \"locationCountryCode\": \"<string>\",\n  \"locationCityName\": \"<string>\",\n  \"locationLatitude\": \"<float>\",\n  \"locationLongitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8239b17c-32d8-4cfb-80a6-2b6aaca83747",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/merge-patch+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"biography\": \"<string>\",\n  \"locationTimezone\": \"<string>\",\n  \"locationCountryCode\": \"<string>\",\n  \"locationCityName\": \"<string>\",\n  \"locationLatitude\": \"<float>\",\n  \"locationLongitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7b606a6-19d0-47e8-bba3-a2af2dec8ed1",
+          "name": "Update a user profile picture",
+          "request": {
+            "name": "Update a user profile picture",
+            "description": {
+              "content": "Update user profile picture.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "users",
+                ":id",
+                "photo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": [
+            {
+              "id": "31f5cae0-5a4c-46ab-85f2-49c4cf173684",
+              "name": "User resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id",
+                    "photo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"User\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"email\": \"john.smith@example.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"jobTitle\": \"Head of Marketing\",\n  \"invitationPending\": true,\n  \"preferredFloor\": {\n    \"name\": \"Floor 1\"\n  },\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"modifiedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"locale\": \"en-GB\",\n  \"timePreference\": \"default\",\n  \"locationCityName\": \"London\",\n  \"locationCountryCode\": \"GB\",\n  \"locationLatitude\": 51.509865,\n  \"locationLongitude\": -0.118092,\n  \"locationTimezone\": \"Europe/London\",\n  \"biography\": \"I love 🍕!\",\n  \"monogram\": \"JS\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2c9a392-c427-4097-ac3c-3b72c4bf038c",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id",
+                    "photo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8aa82b8-f843-4bfb-91a3-709b7c13378d",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id",
+                    "photo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.onkadence.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "public"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.onkadence.co/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d13b8860-b44c-4c77-9002-642cd4ad2f24",
+    "name": "Kadence Public Bookable Day User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you'll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).\n\n## Regional Environments\n\nKadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you're using the correct base URLs for your region.\n\n**EU region: (default)**\n\n- Auth: [https://login.onkadence.co](https://login.onkadence.co)\n- API: [https://api.onkadence.co](https://api.onkadence.co)\n\n**US region:**\n\n- Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)\n- API: [https://api.us.onkadence.co](https://api.us.onkadence.co)\n\nYour region is determined by where your Kadence account was set up. If you're unsure which region you're on, contact your account administrator or reach out to Kadence support.\n\nUse the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.",
+      "type": "text/plain"
+    }
+  }
+}

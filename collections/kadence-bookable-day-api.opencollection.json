@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bookable Day",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a collection of Bookable Days",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/bookable-days",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "buildingId",
+                "value": "01CBCV1CT3BM8A52SEJ2J5F4EB",
+                "type": "query",
+                "description": "The building identifier to get a collection of bookable days for."
+              },
+              {
+                "name": "userId",
+                "value": "01CADV1CT3BM8A52SEJ2J5F4EB",
+                "type": "query",
+                "description": "The user identifier to get a collection of bookable days for."
+              }
+            ]
+          },
+          "docs": "Get a list of all days that a booking can be made for specific user in a specific building."
+        },
+        {
+          "info": {
+            "name": "Retrieves a Bookable Day resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/bookable-days/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Bookable Day identifier"
+              }
+            ]
+          },
+          "docs": "Retrieves a Bookable Day resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

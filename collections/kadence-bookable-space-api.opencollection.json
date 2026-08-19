@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day Bookable Space API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bookable Space",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Bookable Spaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/bookable-spaces",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "floorId",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Floor identifier"
+              },
+              {
+                "name": "userId",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "User identifier"
+              },
+              {
+                "name": "startDateTime",
+                "value": "2023-07-03T09:00:00",
+                "type": "query",
+                "description": "UTC Booking start date time in format YYYY-MM-DDThh:mm:ss"
+              },
+              {
+                "name": "endDateTime",
+                "value": "2023-07-03T17:00:00",
+                "type": "query",
+                "description": "UTC Booking start date time in format YYYY-MM-DDThh:mm:ss"
+              },
+              {
+                "name": "spaceType",
+                "value": "desk",
+                "type": "query",
+                "description": "The type of resource that you require. Defaults to desk"
+              }
+            ]
+          },
+          "docs": "Get a list of all the spaces on a specific floor, which may be booked for a specific user during a specific time period."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

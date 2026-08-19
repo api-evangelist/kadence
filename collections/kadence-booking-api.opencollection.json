@@ -1,0 +1,728 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day Booking API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a collection of bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/bookings",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Booking identifier"
+              },
+              {
+                "name": "startDate",
+                "value": "2023-01-01",
+                "type": "query",
+                "description": "Booking start date in format YYYY-MM-DD (deprecated for startDateTime)"
+              },
+              {
+                "name": "endDate",
+                "value": "2023-01-02",
+                "type": "query",
+                "description": "Booking end date in format YYYY-MM-DD (deprecated for endDateTime)"
+              },
+              {
+                "name": "startDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time on or before this date-time"
+              },
+              {
+                "name": "endDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time before this date-time"
+              },
+              {
+                "name": "endDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time on or after this date-time"
+              },
+              {
+                "name": "endDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking end date-time after this date-time"
+              },
+              {
+                "name": "startDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time on or before this date-time"
+              },
+              {
+                "name": "startDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time before this date-time"
+              },
+              {
+                "name": "startDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time on or after this date-time"
+              },
+              {
+                "name": "startDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by Booking start date-time after this date-time"
+              },
+              {
+                "name": "type",
+                "value": "desk",
+                "type": "query",
+                "description": "Booking type. If booking type is a room, we are interacting with Google or Microsoft's APIs."
+              },
+              {
+                "name": "status",
+                "value": "booked",
+                "type": "query",
+                "description": "Booking status."
+              },
+              {
+                "name": "buildingId",
+                "value": "02GTBV1CT3BM8A42SEJ2J5F4EB",
+                "type": "query",
+                "description": "Building identifier"
+              },
+              {
+                "name": "floorId",
+                "value": "01BTBV1CT3BM8A42SEJ2J5F4EB",
+                "type": "query",
+                "description": "Floor identifier"
+              },
+              {
+                "name": "neighbourhoodId",
+                "value": "01BTBV1CT3BM8A42SEJ2J5F4EB",
+                "type": "query",
+                "description": "Neighbourhood identifier"
+              },
+              {
+                "name": "spaceId",
+                "value": "01CBCV1CT3BM8A52SEJ2J5F4EB",
+                "type": "query",
+                "description": "Space identifier"
+              },
+              {
+                "name": "order[startDate]",
+                "value": "asc",
+                "type": "query",
+                "description": "Order by start date"
+              },
+              {
+                "name": "order[endDate]",
+                "value": "asc",
+                "type": "query",
+                "description": "Order by end date"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The collection page number"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page"
+              }
+            ]
+          },
+          "docs": "Get a collection of bookings for your tenant"
+        },
+        {
+          "info": {
+            "name": "Create a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.onkadence.co/v1/public/bookings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a desk or onsite booking"
+        },
+        {
+          "info": {
+            "name": "Get a single booking by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/bookings/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "Booking identifier"
+              }
+            ]
+          },
+          "docs": "Get a single booking if you know it's identifier."
+        },
+        {
+          "info": {
+            "name": "Cancel a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.onkadence.co/v1/public/bookings/:id/cancel",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "Booking identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel a booking. Cancellation will not be possible if the booking\n                has already been cancelled or completed. By adding a userId to the body of the request the public api can attempt this operation\n                on behalf of a specific user."
+        },
+        {
+          "info": {
+            "name": "Check in to a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.onkadence.co/v1/public/bookings/:id/check-in",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "Booking identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check in to a booking on behalf of a user using a specified method. Check in will not be possible if self-certification is required by the building and the user's whose booking it is has not self-certified for the day of the booking."
+        },
+        {
+          "info": {
+            "name": "Check out of a booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.onkadence.co/v1/public/bookings/:id/check-out",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "Booking identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check out of a booking on behalf of a user using a specified method. Check out will not be possible if self-certification is required by the building and the user's whose booking it is has not self-certified for the day of the booking."
+        },
+        {
+          "info": {
+            "name": "Get a user's bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/users/:id/bookings",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "User identifier"
+              },
+              {
+                "name": "type",
+                "value": "desk",
+                "type": "query",
+                "description": "Booking type. If booking type is a room, we are interacting with Google or Microsoft's APIs."
+              },
+              {
+                "name": "status",
+                "value": "booked",
+                "type": "query",
+                "description": "Booking status."
+              },
+              {
+                "name": "startDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "cancelledDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedInDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedOutDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "selfCertifiedDateTime[local_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time on or before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "selfCertifiedDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "selfCertifiedDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "selfCertifiedDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "selfCertifiedDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time on or before this date-time"
+              },
+              {
+                "name": "selfCertifiedDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time before this date-time"
+              },
+              {
+                "name": "selfCertifiedDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time on or after this date-time"
+              },
+              {
+                "name": "selfCertifiedDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking self-certified date-time after this date-time"
+              },
+              {
+                "name": "checkedOutDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedOutDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedOutDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedOutDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time on or before this date-time"
+              },
+              {
+                "name": "checkedOutDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time before this date-time"
+              },
+              {
+                "name": "checkedOutDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time on or after this date-time"
+              },
+              {
+                "name": "checkedOutDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked out date-time after this date-time"
+              },
+              {
+                "name": "checkedInDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedInDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedInDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "checkedInDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time on or before this date-time"
+              },
+              {
+                "name": "checkedInDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time before this date-time"
+              },
+              {
+                "name": "checkedInDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time on or after this date-time"
+              },
+              {
+                "name": "checkedInDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking checked in date-time after this date-time"
+              },
+              {
+                "name": "cancelledDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "cancelledDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "cancelledDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "cancelledDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time on or before this date-time"
+              },
+              {
+                "name": "cancelledDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time before this date-time"
+              },
+              {
+                "name": "cancelledDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time on or after this date-time"
+              },
+              {
+                "name": "cancelledDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking cancelled date-time after this date-time"
+              },
+              {
+                "name": "endDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "endDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time on or before this date-time"
+              },
+              {
+                "name": "endDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time before this date-time"
+              },
+              {
+                "name": "endDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time on or after this date-time"
+              },
+              {
+                "name": "endDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking end date-time after this date-time"
+              },
+              {
+                "name": "startDateTime[local_strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time before this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[local_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time on or after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[local_strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time after this date-time (adjusted to building timezone)"
+              },
+              {
+                "name": "startDateTime[before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time on or before this date-time"
+              },
+              {
+                "name": "startDateTime[strictly_before]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time before this date-time"
+              },
+              {
+                "name": "startDateTime[after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time on or after this date-time"
+              },
+              {
+                "name": "startDateTime[strictly_after]",
+                "value": "2023-01-01T14:00:00",
+                "type": "query",
+                "description": "Filter by booking start date-time after this date-time"
+              },
+              {
+                "name": "startDate",
+                "value": "2023-01-02",
+                "type": "query",
+                "description": "Booking start date in format YYYY-MM-DD (deprecated for startDateTime)"
+              },
+              {
+                "name": "endDate",
+                "value": "2023-01-02",
+                "type": "query",
+                "description": "Booking end date in format YYYY-MM-DD (deprecated for endDateTime)"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "The page of bookings to get"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "30",
+                "type": "query",
+                "description": "Number of bookings to get per page"
+              },
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Booking identifier"
+              },
+              {
+                "name": "floor.id",
+                "value": "01GABC1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Booking Floor identifier"
+              },
+              {
+                "name": "neighborhood.id",
+                "value": "01GADV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Booking Neighborhood identifier"
+              },
+              {
+                "name": "space.id",
+                "value": "01GADV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Booking Space identifier"
+              },
+              {
+                "name": "building.id",
+                "value": "01GADV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "Filter bookings by building ULID"
+              }
+            ]
+          },
+          "docs": "Get a list of all the bookings made by a user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

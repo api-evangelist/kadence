@@ -1,0 +1,331 @@
+{
+  "item": [
+    {
+      "id": "4335d3bf-a4db-4ca9-9811-46f35e20127a",
+      "name": "Floor",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b41d89dd-a1a1-4e53-9fb1-d98bfa8ea48f",
+          "name": "Get a collection of floors",
+          "request": {
+            "name": "Get a collection of floors",
+            "description": {
+              "content": "Get a list of all the floors within your company from all the buildings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "floors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buildingId",
+                  "value": "<string>",
+                  "description": "Filter by building identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The page of floors to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "<integer>",
+                  "description": "Number of floors to get per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be0d0f94-7fc6-4926-827e-e8a00ab48c96",
+              "name": "Floor collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "floors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buildingId",
+                      "value": "01CBCV1CT3BM8A52SEJ2J5F4EB"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"/v1/public/floors/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Floor\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Floor 01\",\n      \"floorPlanUrl\": \"https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg\"\n    },\n    {\n      \"@id\": \"/v1/public/floors/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Floor\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Floor 01\",\n      \"floorPlanUrl\": \"https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg\"\n    }\n  ],\n  \"hydra:totalItems\": 9544\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a9290ae-ef59-4900-8810-b54071e443ee",
+          "name": "Get a single floor by identifier",
+          "request": {
+            "name": "Get a single floor by identifier",
+            "description": {
+              "content": "Get a floor if you know it's identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "floors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Floor identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d240e56d-c724-4200-b948-65716ecb7dcb",
+              "name": "Floor resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "floors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Floor identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/floors/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"Floor\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"name\": \"Floor 01\",\n  \"floorPlanUrl\": \"https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b08334c9-e010-4bd6-a4b9-3ef0fa2914fe",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "floors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Floor identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.onkadence.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "public"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.onkadence.co/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aa402196-1dfa-4594-9985-b7e6f5a1376e",
+    "name": "Kadence Public Bookable Day Floor API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you'll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).\n\n## Regional Environments\n\nKadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you're using the correct base URLs for your region.\n\n**EU region: (default)**\n\n- Auth: [https://login.onkadence.co](https://login.onkadence.co)\n- API: [https://api.onkadence.co](https://api.onkadence.co)\n\n**US region:**\n\n- Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)\n- API: [https://api.us.onkadence.co](https://api.us.onkadence.co)\n\nYour region is determined by where your Kadence account was set up. If you're unsure which region you're on, contact your account administrator or reach out to Kadence support.\n\nUse the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.",
+      "type": "text/plain"
+    }
+  }
+}

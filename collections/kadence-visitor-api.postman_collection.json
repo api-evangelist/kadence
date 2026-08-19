@@ -1,0 +1,545 @@
+{
+  "item": [
+    {
+      "id": "49def642-5b0f-447a-ba58-d76488dd84b3",
+      "name": "Visitor",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "77464517-e392-4edd-a995-c4fe775fc77c",
+          "name": "Get visitors",
+          "request": {
+            "name": "Get visitors",
+            "description": {
+              "content": "Get a deduplicated directory of everyone who has visited your company as a guest.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "visitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Partial match of visitors by email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailExact",
+                  "value": "<string>",
+                  "description": "Exact match of visitors by email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>",
+                  "description": "Filter visitors by first name. Matches the visitor's display name (the serialized firstName may differ, as it prefers a linked User's name for internal users)."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>",
+                  "description": "Filter visitors by last name. Matches the visitor's display name (the serialized lastName may differ, as it prefers a linked User's name for internal users)."
+                },
+                {
+                  "disabled": false,
+                  "key": "buildingId",
+                  "value": "<string>",
+                  "description": "Filter visitors by the building of any of their visits"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by the visitor's RSVP/attendance status (accepted, declined, tentatively_accepted, not_responded, organizer, none) on any of their visits. This is the attendee response status, distinct from the visit's booking lifecycle status. To filter by the visit's booking status instead, use visitStatus. (Note: unlike /visits, where status IS the booking status, on /visitors status is the RSVP status.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "visitStatus",
+                  "value": "<string>",
+                  "description": "Filter by the visit's booking status (booked, checkedIn, checkedOut, completed, cancelled, noCheckIn) on any of their visits. This is the booking lifecycle status, distinct from the visitor's RSVP status filter (status). This is the equivalent of the status filter on /visits."
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit end date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visitor visit start date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The page of visitors to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "<integer>",
+                  "description": "Number of visitors to get per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87f2a29a-cf34-4e20-901f-c64fcec3c2b5",
+              "name": "Visitor collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "visitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "emailExact",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "John"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "Smith"
+                    },
+                    {
+                      "key": "buildingId",
+                      "value": "01GTBV1CT3BM8A42SEJ2J5F4EG"
+                    },
+                    {
+                      "key": "status",
+                      "value": "accepted"
+                    },
+                    {
+                      "key": "visitStatus",
+                      "value": "checkedIn"
+                    },
+                    {
+                      "key": "startDateTime[local_before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"visitCount\": 3,\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"displayName\": \"John Smith\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"email\": \"john.smith@example.com\",\n      \"type\": \"external\",\n      \"userId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"status\": \"accepted\",\n      \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n      \"visitId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"host\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"building\": {},\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"visitStatus\": \"booked\"\n    },\n    {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"visitCount\": 3,\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"displayName\": \"John Smith\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"email\": \"john.smith@example.com\",\n      \"type\": \"external\",\n      \"userId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"status\": \"accepted\",\n      \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n      \"visitId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"host\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"building\": {},\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"visitStatus\": \"booked\"\n    }\n  ],\n  \"hydra:totalItems\": 3349\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69e6b474-3753-4d3e-84a4-2921ad4a58ec",
+          "name": "Get a single visitor by identifier",
+          "request": {
+            "name": "Get a single visitor by identifier",
+            "description": {
+              "content": "Get a single visitor if you know the identifier of any of their visits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "visitors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Visitor identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a82b9484-364d-4b58-9270-85a3d92bcce5",
+              "name": "Visitor resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "visitors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Visitor identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@context\": \"string\",\n  \"@id\": \"string\",\n  \"@type\": \"string\",\n  \"visitCount\": 3,\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"displayName\": \"John Smith\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john.smith@example.com\",\n  \"type\": \"external\",\n  \"userId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"status\": \"accepted\",\n  \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n  \"visitId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"host\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"building\": {},\n  \"startDate\": \"2017-07-21T17:32:28+00:00\",\n  \"endDate\": \"2017-07-21T17:32:28+00:00\",\n  \"visitStatus\": \"booked\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9230814-5b4b-4ac0-9907-261c1818e3e6",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "visitors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Visitor identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.onkadence.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "public"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.onkadence.co/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "be984339-fc2d-4954-ae9b-5984c8a2275e",
+    "name": "Kadence Public Bookable Day Visitor API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you'll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).\n\n## Regional Environments\n\nKadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you're using the correct base URLs for your region.\n\n**EU region: (default)**\n\n- Auth: [https://login.onkadence.co](https://login.onkadence.co)\n- API: [https://api.onkadence.co](https://api.onkadence.co)\n\n**US region:**\n\n- Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)\n- API: [https://api.us.onkadence.co](https://api.us.onkadence.co)\n\nYour region is determined by where your Kadence account was set up. If you're unsure which region you're on, contact your account administrator or reach out to Kadence support.\n\nUse the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.",
+      "type": "text/plain"
+    }
+  }
+}

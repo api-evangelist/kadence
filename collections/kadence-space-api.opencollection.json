@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day Space API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Space",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get spaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/spaces",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "The page of spaces to get"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "30",
+                "type": "query",
+                "description": "Number of spaces to get per page"
+              },
+              {
+                "name": "neighborhoodId",
+                "value": "01AZMC4F598J6RRG449TRTRK20",
+                "type": "query",
+                "description": "Filter by neighborhood identifier"
+              },
+              {
+                "name": "floorId",
+                "value": "01CBCV1CT3BM8A52SEJ2J5F4EB",
+                "type": "query",
+                "description": "Filter by floor identifier"
+              },
+              {
+                "name": "buildingId",
+                "value": "01H4E18A4C7K1GD4BEM9NCNJAW",
+                "type": "query",
+                "description": "Filter by building identifier"
+              }
+            ]
+          },
+          "docs": "Get a list of all the spaces within your company from all the floors."
+        },
+        {
+          "info": {
+            "name": "Get a single space by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/spaces/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "Space identifier"
+              }
+            ]
+          },
+          "docs": "Get a space if you know it's identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,8 +2,8 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/kadence-public-api-openapi.yml
-note: Candidate MCP tool list derived one-per-operation from the Kadence Public API OpenAPI. No official hosted MCP server
-  was found (searched docs, npm @modelcontextprotocol, MCP registries).
+note: Candidate MCP tool list derived one-per-operation from the Kadence Public API OpenAPI. No official
+  hosted MCP server was found (searched docs, npm @modelcontextprotocol, MCP registries).
 server:
   name: kadence
   transport: stdio
@@ -89,3 +89,9 @@ tools:
 - name: api_v1publicvisitors_id_get
   description: Get a single visitor by identifier
   source_operation: openapi/kadence-public-api-openapi.yml#api_v1publicvisitors_id_get
+deployment:
+  mode: none
+  verified: derived
+  tools: 27
+  checked: '2026-08-12'
+  source: catalog MCP census

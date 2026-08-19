@@ -1,0 +1,175 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kadence Public Bookable Day User API",
+    "version": "1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.onkadence.co/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/users",
+            "params": [
+              {
+                "name": "email",
+                "value": "john.smith@example.com",
+                "type": "query",
+                "description": "Partial match of users by email address"
+              },
+              {
+                "name": "emailExact",
+                "value": "john.smith@example.com",
+                "type": "query",
+                "description": "Exact match of users by email address"
+              },
+              {
+                "name": "firstName",
+                "value": "John",
+                "type": "query",
+                "description": "Filter users by first name"
+              },
+              {
+                "name": "lastName",
+                "value": "Smith",
+                "type": "query",
+                "description": "Filter users by last name"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "The page of users to get"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "30",
+                "type": "query",
+                "description": "Number of users to get per page"
+              },
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "query",
+                "description": "User identifier"
+              }
+            ]
+          },
+          "docs": "Get a list of all the users within your company."
+        },
+        {
+          "info": {
+            "name": "Get a single user by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.onkadence.co/v1/public/users/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "User identifier"
+              }
+            ]
+          },
+          "docs": "Get a single user if you know their identifier."
+        },
+        {
+          "info": {
+            "name": "Update a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.onkadence.co/v1/public/users/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/merge-patch+json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "User identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user information."
+        },
+        {
+          "info": {
+            "name": "Update a user profile picture",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.onkadence.co/v1/public/users/:id/photo",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/ld+json"
+              },
+              {
+                "name": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "01GTBV1CT3BM8A42SEJ2J5F4EG",
+                "type": "path",
+                "description": "User identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Update user profile picture."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

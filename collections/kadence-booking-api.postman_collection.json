@@ -1,0 +1,2269 @@
+{
+  "item": [
+    {
+      "id": "cc3568d5-e16f-4c4d-9276-c9acc24bec45",
+      "name": "Booking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e787be39-3edd-4a27-be31-f942fb7d78c1",
+          "name": "Get a collection of bookings",
+          "request": {
+            "name": "Get a collection of bookings",
+            "description": {
+              "content": "Get a collection of bookings for your tenant",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "Booking identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "Booking start date in format YYYY-MM-DD (deprecated for startDateTime)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "Booking end date in format YYYY-MM-DD (deprecated for endDateTime)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking end date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Booking start date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Booking type. If booking type is a room, we are interacting with Google or Microsoft's APIs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Booking status."
+                },
+                {
+                  "disabled": false,
+                  "key": "buildingId",
+                  "value": "<string>",
+                  "description": "Building identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "floorId",
+                  "value": "<string>",
+                  "description": "Floor identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "neighbourhoodId",
+                  "value": "<string>",
+                  "description": "Neighbourhood identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "spaceId",
+                  "value": "<string>",
+                  "description": "Space identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[startDate]",
+                  "value": "<string>",
+                  "description": "Order by start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[endDate]",
+                  "value": "<string>",
+                  "description": "Order by end date"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The collection page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "50",
+                  "description": "The number of items per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c99ab370-b220-4a9b-84fc-ee9e0cd0588d",
+              "name": "Booking collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "01GTBV1CT3BM8A42SEJ2J5F4EG"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-01-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-01-02"
+                    },
+                    {
+                      "key": "startDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "type",
+                      "value": "desk"
+                    },
+                    {
+                      "key": "status",
+                      "value": "booked"
+                    },
+                    {
+                      "key": "buildingId",
+                      "value": "02GTBV1CT3BM8A42SEJ2J5F4EB"
+                    },
+                    {
+                      "key": "floorId",
+                      "value": "01BTBV1CT3BM8A42SEJ2J5F4EB"
+                    },
+                    {
+                      "key": "neighbourhoodId",
+                      "value": "01BTBV1CT3BM8A42SEJ2J5F4EB"
+                    },
+                    {
+                      "key": "spaceId",
+                      "value": "01CBCV1CT3BM8A52SEJ2J5F4EB"
+                    },
+                    {
+                      "key": "order[startDate]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[endDate]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Booking\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"createdUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"userId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"space\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\",\n        \"id\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": \"string\",\n          \"@type\": \"string\"\n        },\n        \"name\": \"Desk 01\",\n        \"type\": \"desk\",\n        \"floor\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"neighborhood\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"photo\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n      \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInSource\": \"web\",\n      \"checkInMethod\": \"doorAccess\",\n      \"checkOutMethod\": \"doorAccess\",\n      \"checkedOutUser\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkOutSource\": \"web\",\n      \"permanent\": false,\n      \"hasGuests\": false,\n      \"guestBooking\": false,\n      \"recurringBooking\": false,\n      \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"selfCertifySource\": \"web\",\n      \"source\": \"web\",\n      \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancelledUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"bookingUserEmail\": \"john@example.com\",\n      \"bookingCreatedByUserEmail\": \"john@example.com\",\n      \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancellationReason\": \"byUser\",\n      \"title\": null,\n      \"status\": \"booked\",\n      \"type\": \"desk\",\n      \"onlineMeeting\": null,\n      \"onlineMeetingUrl\": null,\n      \"icalUid\": null,\n      \"building\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      }\n    },\n    {\n      \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Booking\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"createdUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"userId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"space\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\",\n        \"id\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": \"string\",\n          \"@type\": \"string\"\n        },\n        \"name\": \"Desk 01\",\n        \"type\": \"desk\",\n        \"floor\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"neighborhood\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"photo\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n      \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInSource\": \"web\",\n      \"checkInMethod\": \"doorAccess\",\n      \"checkOutMethod\": \"doorAccess\",\n      \"checkedOutUser\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkOutSource\": \"web\",\n      \"permanent\": false,\n      \"hasGuests\": false,\n      \"guestBooking\": false,\n      \"recurringBooking\": false,\n      \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"selfCertifySource\": \"web\",\n      \"source\": \"web\",\n      \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancelledUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"bookingUserEmail\": \"john@example.com\",\n      \"bookingCreatedByUserEmail\": \"john@example.com\",\n      \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancellationReason\": \"byUser\",\n      \"title\": null,\n      \"status\": \"booked\",\n      \"type\": \"desk\",\n      \"onlineMeeting\": null,\n      \"onlineMeetingUrl\": null,\n      \"icalUid\": null,\n      \"building\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      }\n    }\n  ],\n  \"hydra:totalItems\": 1946\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36ed8e42-befa-4334-930d-c3ae1a4757ca",
+          "name": "Create a booking",
+          "request": {
+            "name": "Create a booking",
+            "description": {
+              "content": "Create a desk or onsite booking",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"startDateTime\": \"<string>\",\n  \"endDateTime\": \"<string>\",\n  \"buildingId\": \"<string>\",\n  \"spaceId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"onlineMeeting\": \"<boolean>\",\n  \"attendees\": [\n    {\n      \"userId\": \"<string>\"\n    },\n    {\n      \"userId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e28472c-6555-48b6-84c9-eee7235aab19",
+              "name": "Booking resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"startDateTime\": \"2023-07-03T09:00:00\",\n  \"endDateTime\": \"2023-07-03T17:00:00\",\n  \"buildingId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"spaceId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"title\": \"Room booking for Room 001\",\n  \"description\": \"\",\n  \"onlineMeeting\": true,\n  \"attendees\": [\n    {\n      \"userId\": \"01GTBV1CT3BM8A42SEJ2J5FJ2J\"\n    },\n    {\n      \"userId\": \"01GTBV1CT3BM8A42SEJ2J5FJ2J\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"Booking\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"createdUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"userId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"space\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"id\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    },\n    \"name\": \"Desk 01\",\n    \"type\": \"desk\",\n    \"floor\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Floor 01\"\n    },\n    \"neighborhood\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Sales\"\n    },\n    \"photo\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    }\n  },\n  \"startDate\": \"2017-07-21T17:32:28+00:00\",\n  \"endDate\": \"2017-07-21T17:32:28+00:00\",\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInSource\": \"web\",\n  \"checkInMethod\": \"doorAccess\",\n  \"checkOutMethod\": \"doorAccess\",\n  \"checkedOutUser\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkOutSource\": \"web\",\n  \"permanent\": false,\n  \"hasGuests\": false,\n  \"guestBooking\": false,\n  \"recurringBooking\": false,\n  \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"selfCertifySource\": \"web\",\n  \"source\": \"web\",\n  \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancelledUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"bookingUserEmail\": \"john@example.com\",\n  \"bookingCreatedByUserEmail\": \"john@example.com\",\n  \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancellationReason\": \"byUser\",\n  \"title\": null,\n  \"status\": \"booked\",\n  \"type\": \"desk\",\n  \"onlineMeeting\": null,\n  \"onlineMeetingUrl\": null,\n  \"icalUid\": null,\n  \"building\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eeac3cb9-4a16-49ff-a49a-7430914a4fbd",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"startDateTime\": \"2023-07-03T09:00:00\",\n  \"endDateTime\": \"2023-07-03T17:00:00\",\n  \"buildingId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"spaceId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"title\": \"Room booking for Room 001\",\n  \"description\": \"\",\n  \"onlineMeeting\": true,\n  \"attendees\": [\n    {\n      \"userId\": \"01GTBV1CT3BM8A42SEJ2J5FJ2J\"\n    },\n    {\n      \"userId\": \"01GTBV1CT3BM8A42SEJ2J5FJ2J\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b237124-6c00-437a-904a-d15e3c16418a",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"startDateTime\": \"2023-07-03T09:00:00\",\n  \"endDateTime\": \"2023-07-03T17:00:00\",\n  \"buildingId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"spaceId\": \"01H59ZGH7HDQ4KAAN6RR1X8V7V\",\n  \"title\": \"Room booking for Room 001\",\n  \"description\": \"\",\n  \"onlineMeeting\": true,\n  \"attendees\": [\n    {\n      \"userId\": \"01GTBV1CT3BM8A42SEJ2J5FJ2J\"\n    },\n    {\n      \"userId\": \"01GTBV1CT3BM8A42SEJ2J5FJ2J\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c02a5de9-a0c7-4ba7-bd54-4de7be236c9b",
+          "name": "Get a single booking by identifier",
+          "request": {
+            "name": "Get a single booking by identifier",
+            "description": {
+              "content": "Get a single booking if you know it's identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Booking identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59da9ec3-2abc-40ab-9d9d-a090296da398",
+              "name": "Booking resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"Booking\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"createdUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"userId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"space\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"id\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    },\n    \"name\": \"Desk 01\",\n    \"type\": \"desk\",\n    \"floor\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Floor 01\"\n    },\n    \"neighborhood\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Sales\"\n    },\n    \"photo\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    }\n  },\n  \"startDate\": \"2017-07-21T17:32:28+00:00\",\n  \"endDate\": \"2017-07-21T17:32:28+00:00\",\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInSource\": \"web\",\n  \"checkInMethod\": \"doorAccess\",\n  \"checkOutMethod\": \"doorAccess\",\n  \"checkedOutUser\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkOutSource\": \"web\",\n  \"permanent\": false,\n  \"hasGuests\": false,\n  \"guestBooking\": false,\n  \"recurringBooking\": false,\n  \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"selfCertifySource\": \"web\",\n  \"source\": \"web\",\n  \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancelledUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"bookingUserEmail\": \"john@example.com\",\n  \"bookingCreatedByUserEmail\": \"john@example.com\",\n  \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancellationReason\": \"byUser\",\n  \"title\": null,\n  \"status\": \"booked\",\n  \"type\": \"desk\",\n  \"onlineMeeting\": null,\n  \"onlineMeetingUrl\": null,\n  \"icalUid\": null,\n  \"building\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1fd24cd-4958-4b22-b140-9240f3cf6c5c",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "308d448d-edf0-4b9f-a2c5-5a285805bb51",
+          "name": "Cancel a booking",
+          "request": {
+            "name": "Cancel a booking",
+            "description": {
+              "content": "Cancel a booking. Cancellation will not be possible if the booking\n                has already been cancelled or completed. By adding a userId to the body of the request the public api can attempt this operation\n                on behalf of a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookings",
+                ":id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Booking identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d422d006-a09c-48fc-a0c7-d38a6354a7a6",
+              "name": "Booking resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"Booking\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"createdUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"userId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"space\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"id\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    },\n    \"name\": \"Desk 01\",\n    \"type\": \"desk\",\n    \"floor\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Floor 01\"\n    },\n    \"neighborhood\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Sales\"\n    },\n    \"photo\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    }\n  },\n  \"startDate\": \"2017-07-21T17:32:28+00:00\",\n  \"endDate\": \"2017-07-21T17:32:28+00:00\",\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInSource\": \"web\",\n  \"checkInMethod\": \"doorAccess\",\n  \"checkOutMethod\": \"doorAccess\",\n  \"checkedOutUser\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkOutSource\": \"web\",\n  \"permanent\": false,\n  \"hasGuests\": false,\n  \"guestBooking\": false,\n  \"recurringBooking\": false,\n  \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"selfCertifySource\": \"web\",\n  \"source\": \"web\",\n  \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancelledUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"bookingUserEmail\": \"john@example.com\",\n  \"bookingCreatedByUserEmail\": \"john@example.com\",\n  \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancellationReason\": \"byUser\",\n  \"title\": null,\n  \"status\": \"booked\",\n  \"type\": \"desk\",\n  \"onlineMeeting\": null,\n  \"onlineMeetingUrl\": null,\n  \"icalUid\": null,\n  \"building\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5ef3984-50fe-4b4d-8797-7b4cb53e259e",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d645092d-8f39-470e-a88b-87f1b18ca5df",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df2ec7c9-039f-4f16-8bde-a035aa455c98",
+          "name": "Check in to a booking",
+          "request": {
+            "name": "Check in to a booking",
+            "description": {
+              "content": "Check in to a booking on behalf of a user using a specified method. Check in will not be possible if self-certification is required by the building and the user's whose booking it is has not self-certified for the day of the booking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookings",
+                ":id",
+                "check-in"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Booking identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"method\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a86e86b3-2e5b-42eb-91b7-d1af338fd319",
+              "name": "Booking resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "check-in"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"method\": \"doorAccess\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"Booking\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"createdUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"userId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"space\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"id\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    },\n    \"name\": \"Desk 01\",\n    \"type\": \"desk\",\n    \"floor\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Floor 01\"\n    },\n    \"neighborhood\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Sales\"\n    },\n    \"photo\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    }\n  },\n  \"startDate\": \"2017-07-21T17:32:28+00:00\",\n  \"endDate\": \"2017-07-21T17:32:28+00:00\",\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInSource\": \"web\",\n  \"checkInMethod\": \"doorAccess\",\n  \"checkOutMethod\": \"doorAccess\",\n  \"checkedOutUser\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkOutSource\": \"web\",\n  \"permanent\": false,\n  \"hasGuests\": false,\n  \"guestBooking\": false,\n  \"recurringBooking\": false,\n  \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"selfCertifySource\": \"web\",\n  \"source\": \"web\",\n  \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancelledUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"bookingUserEmail\": \"john@example.com\",\n  \"bookingCreatedByUserEmail\": \"john@example.com\",\n  \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancellationReason\": \"byUser\",\n  \"title\": null,\n  \"status\": \"booked\",\n  \"type\": \"desk\",\n  \"onlineMeeting\": null,\n  \"onlineMeetingUrl\": null,\n  \"icalUid\": null,\n  \"building\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6a43538-a803-41b7-8604-7397a3754e56",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "check-in"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"method\": \"doorAccess\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e331112-28ef-442c-95c1-1b8b02fe5735",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "check-in"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"method\": \"doorAccess\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd1e384d-9c3c-4877-9afc-61761dd2377d",
+          "name": "Check out of a booking",
+          "request": {
+            "name": "Check out of a booking",
+            "description": {
+              "content": "Check out of a booking on behalf of a user using a specified method. Check out will not be possible if self-certification is required by the building and the user's whose booking it is has not self-certified for the day of the booking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "bookings",
+                ":id",
+                "check-out"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Booking identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"method\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d58d8e0-4f8b-4fa7-b954-c3f430e94436",
+              "name": "Booking resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "check-out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"method\": \"doorAccess\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"@type\": \"Booking\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"createdUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"userId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"space\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"id\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    },\n    \"name\": \"Desk 01\",\n    \"type\": \"desk\",\n    \"floor\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Floor 01\"\n    },\n    \"neighborhood\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"name\": \"Sales\"\n    },\n    \"photo\": {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\"\n    }\n  },\n  \"startDate\": \"2017-07-21T17:32:28+00:00\",\n  \"endDate\": \"2017-07-21T17:32:28+00:00\",\n  \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n  \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkedInSource\": \"web\",\n  \"checkInMethod\": \"doorAccess\",\n  \"checkOutMethod\": \"doorAccess\",\n  \"checkedOutUser\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n  \"checkOutSource\": \"web\",\n  \"permanent\": false,\n  \"hasGuests\": false,\n  \"guestBooking\": false,\n  \"recurringBooking\": false,\n  \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"selfCertifySource\": \"web\",\n  \"source\": \"web\",\n  \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancelledUserId\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"bookingUserEmail\": \"john@example.com\",\n  \"bookingCreatedByUserEmail\": \"john@example.com\",\n  \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n  \"cancellationReason\": \"byUser\",\n  \"title\": null,\n  \"status\": \"booked\",\n  \"type\": \"desk\",\n  \"onlineMeeting\": null,\n  \"onlineMeetingUrl\": null,\n  \"icalUid\": null,\n  \"building\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de79bcff-b059-4e14-8629-ca942ca369dd",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "check-out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"method\": \"doorAccess\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9b7d0cb-2de4-4b3f-bdbe-94f261d1f13c",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "bookings",
+                    ":id",
+                    "check-out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Booking identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"01GTBV1CT3BM8A42SEJ2J5F4EG\",\n  \"method\": \"doorAccess\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b05f916-16dd-4c10-add6-3985a5617499",
+          "name": "Get a user's bookings",
+          "request": {
+            "name": "Get a user's bookings",
+            "description": {
+              "content": "Get a list of all the bookings made by a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "users",
+                ":id",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Booking type. If booking type is a room, we are interacting with Google or Microsoft's APIs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Booking status."
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfCertifiedDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking self-certified date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedOutDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked out date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "checkedInDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking checked in date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "cancelledDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking cancelled date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking end date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by booking start date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "Booking start date in format YYYY-MM-DD (deprecated for startDateTime)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "Booking end date in format YYYY-MM-DD (deprecated for endDateTime)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The page of bookings to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "<integer>",
+                  "description": "Number of bookings to get per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "Booking identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "floor.id",
+                  "value": "<string>",
+                  "description": "Booking Floor identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "neighborhood.id",
+                  "value": "<string>",
+                  "description": "Booking Neighborhood identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "space.id",
+                  "value": "<string>",
+                  "description": "Booking Space identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "building.id",
+                  "value": "<string>",
+                  "description": "Filter bookings by building ULID"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "Building identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1be3adaf-5bff-4db8-b7f4-fe0ae628e14a",
+              "name": "Booking collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "users",
+                    ":id",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "desk"
+                    },
+                    {
+                      "key": "status",
+                      "value": "booked"
+                    },
+                    {
+                      "key": "startDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[local_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "selfCertifiedDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedOutDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "checkedInDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "cancelledDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_before]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_after]",
+                      "value": "2023-01-01T14:00:00"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-01-02"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-01-02"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "30"
+                    },
+                    {
+                      "key": "id",
+                      "value": "01GTBV1CT3BM8A42SEJ2J5F4EG"
+                    },
+                    {
+                      "key": "floor.id",
+                      "value": "01GABC1CT3BM8A42SEJ2J5F4EG"
+                    },
+                    {
+                      "key": "neighborhood.id",
+                      "value": "01GADV1CT3BM8A42SEJ2J5F4EG"
+                    },
+                    {
+                      "key": "space.id",
+                      "value": "01GADV1CT3BM8A42SEJ2J5F4EG"
+                    },
+                    {
+                      "key": "building.id",
+                      "value": "01GADV1CT3BM8A42SEJ2J5F4EG"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "Building identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Booking\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"createdUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"userId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"space\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\",\n        \"id\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": \"string\",\n          \"@type\": \"string\"\n        },\n        \"name\": \"Desk 01\",\n        \"type\": \"desk\",\n        \"floor\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"neighborhood\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"photo\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n      \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInSource\": \"web\",\n      \"checkInMethod\": \"doorAccess\",\n      \"checkOutMethod\": \"doorAccess\",\n      \"checkedOutUser\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkOutSource\": \"web\",\n      \"permanent\": false,\n      \"hasGuests\": false,\n      \"guestBooking\": false,\n      \"recurringBooking\": false,\n      \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"selfCertifySource\": \"web\",\n      \"source\": \"web\",\n      \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancelledUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"bookingUserEmail\": \"john@example.com\",\n      \"bookingCreatedByUserEmail\": \"john@example.com\",\n      \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancellationReason\": \"byUser\",\n      \"title\": null,\n      \"status\": \"booked\",\n      \"type\": \"desk\",\n      \"onlineMeeting\": null,\n      \"onlineMeetingUrl\": null,\n      \"icalUid\": null,\n      \"building\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      }\n    },\n    {\n      \"@id\": \"/v1/public/bookings/01GTBV1CT3BM8A42SEJ2J5F4EG\",\n      \"@type\": \"Booking\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"createdUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"userId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"space\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\",\n        \"id\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": \"string\",\n          \"@type\": \"string\"\n        },\n        \"name\": \"Desk 01\",\n        \"type\": \"desk\",\n        \"floor\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"neighborhood\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"photo\": {\n          \"@context\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"@type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"createdAt\": \"2017-07-21T17:32:28+00:00\",\n      \"updatedAt\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedInDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkedInSource\": \"web\",\n      \"checkInMethod\": \"doorAccess\",\n      \"checkOutMethod\": \"doorAccess\",\n      \"checkedOutUser\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"checkedOutDate\": \"2017-07-21T17:32:28+00:00\",\n      \"checkOutSource\": \"web\",\n      \"permanent\": false,\n      \"hasGuests\": false,\n      \"guestBooking\": false,\n      \"recurringBooking\": false,\n      \"selfCertifiedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"selfCertifySource\": \"web\",\n      \"source\": \"web\",\n      \"autoReleasedDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancelledUserId\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"bookingUserEmail\": \"john@example.com\",\n      \"bookingCreatedByUserEmail\": \"john@example.com\",\n      \"cancelledDate\": \"2017-07-21T17:32:28+00:00\",\n      \"cancellationReason\": \"byUser\",\n      \"title\": null,\n      \"status\": \"booked\",\n      \"type\": \"desk\",\n      \"onlineMeeting\": null,\n      \"onlineMeetingUrl\": null,\n      \"icalUid\": null,\n      \"building\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      }\n    }\n  ],\n  \"hydra:totalItems\": 1946\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.onkadence.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "public"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.onkadence.co/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1b05f66f-264a-42e6-937c-0245f4bb80c5",
+    "name": "Kadence Public Bookable Day Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you'll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).\n\n## Regional Environments\n\nKadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you're using the correct base URLs for your region.\n\n**EU region: (default)**\n\n- Auth: [https://login.onkadence.co](https://login.onkadence.co)\n- API: [https://api.onkadence.co](https://api.onkadence.co)\n\n**US region:**\n\n- Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)\n- API: [https://api.us.onkadence.co](https://api.us.onkadence.co)\n\nYour region is determined by where your Kadence account was set up. If you're unsure which region you're on, contact your account administrator or reach out to Kadence support.\n\nUse the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.",
+      "type": "text/plain"
+    }
+  }
+}

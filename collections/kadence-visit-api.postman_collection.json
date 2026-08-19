@@ -1,0 +1,495 @@
+{
+  "item": [
+    {
+      "id": "253e7070-e48c-4163-a3dc-055a0bd2a563",
+      "name": "Visit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1af7c4c9-ca1a-4d67-8f8f-cb897a88fdc5",
+          "name": "Get visits",
+          "request": {
+            "name": "Get visits",
+            "description": {
+              "content": "Get a collection of visits (guest bookings) for your company.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "visits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buildingId",
+                  "value": "<string>",
+                  "description": "Filter visits by building identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter visits by booking status"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time on or before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit end date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time before this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time on or after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[local_strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time after this date-time (adjusted to building timezone)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time on or before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_before]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time before this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time on or after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime[strictly_after]",
+                  "value": "<string>",
+                  "description": "Filter by Visit start date-time after this date-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The page of visits to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "<integer>",
+                  "description": "Number of visits to get per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c26b1a19-1280-43ae-b60d-e679c16c45d5",
+              "name": "Visit collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "visits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buildingId",
+                      "value": "01GTBV1CT3BM8A42SEJ2J5F4EG"
+                    },
+                    {
+                      "key": "status",
+                      "value": "booked"
+                    },
+                    {
+                      "key": "startDateTime[local_before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[local_strictly_after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_before]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "endDateTime[strictly_after]",
+                      "value": "2024-01-01T17:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[local_strictly_after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_before]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "startDateTime[strictly_after]",
+                      "value": "2024-01-01T09:00:00"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"host\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"building\": {},\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"status\": \"booked\"\n    },\n    {\n      \"@context\": \"string\",\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"id\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"host\": {\n        \"@context\": \"string\",\n        \"@id\": \"string\",\n        \"@type\": \"string\"\n      },\n      \"building\": {},\n      \"startDate\": \"2017-07-21T17:32:28+00:00\",\n      \"endDate\": \"2017-07-21T17:32:28+00:00\",\n      \"status\": \"booked\"\n    }\n  ],\n  \"hydra:totalItems\": 8710\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab8badbf-f3c2-47e9-92f7-c31794994e64",
+          "name": "Get a single visit by identifier",
+          "request": {
+            "name": "Get a single visit by identifier",
+            "description": {
+              "content": "Get a single visit (guest booking) if you know its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "public",
+                "visits",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Visit identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77be100a-e7ca-4784-8bc0-618233f04554",
+              "name": "Visit resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "visits",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Visit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@context\": \"string\",\n  \"@id\": \"string\",\n  \"@type\": \"string\",\n  \"id\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"host\": {\n    \"@context\": \"string\",\n    \"@id\": \"string\",\n    \"@type\": \"string\"\n  },\n  \"building\": {},\n  \"startDate\": \"2017-07-21T17:32:28+00:00\",\n  \"endDate\": \"2017-07-21T17:32:28+00:00\",\n  \"status\": \"booked\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1454b963-ec53-4752-9f3e-293185f4cb65",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "public",
+                    "visits",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Visit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.onkadence.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "public"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.onkadence.co/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "478b4c02-8c3a-4a5a-8aac-8d981dce19b0",
+    "name": "Kadence Public Bookable Day Visit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you'll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).\n\n## Regional Environments\n\nKadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you're using the correct base URLs for your region.\n\n**EU region: (default)**\n\n- Auth: [https://login.onkadence.co](https://login.onkadence.co)\n- API: [https://api.onkadence.co](https://api.onkadence.co)\n\n**US region:**\n\n- Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)\n- API: [https://api.us.onkadence.co](https://api.us.onkadence.co)\n\nYour region is determined by where your Kadence account was set up. If you're unsure which region you're on, contact your account administrator or reach out to Kadence support.\n\nUse the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.",
+      "type": "text/plain"
+    }
+  }
+}
