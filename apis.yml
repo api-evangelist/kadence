@@ -44,6 +44,17 @@ tags:
 - Visitor Management
 - Workplace Analytics
 - Facilities
+- Authentication
+tags_raw:
+- Company
+- Workplace
+- Hybrid Work
+- Desk Booking
+- Room Booking
+- Space Management
+- Visitor Management
+- Workplace Analytics
+- Facilities
 - OAuth
 maintainers:
 - FN: Kin Lane
