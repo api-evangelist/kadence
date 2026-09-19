@@ -176,6 +176,8 @@ apis:
   humanURL: https://kadence.co/hybrid-workplace-api/
   baseURL: https://api.onkadence.co
   tags:
+  - Buildings
+  tags_raw:
   - Building
   properties:
   - type: OpenAPI
