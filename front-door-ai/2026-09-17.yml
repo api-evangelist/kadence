@@ -1,0 +1,29 @@
+# Front Door AI Index — kadence — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: kadence
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: kadence.co
+  final_host: kadence.co
+  ownership: own
+  owner: kadence
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 12
+  host_score: 12
+  density: 10.44
+  words: 1149
+  tiers:
+    agentic: 4
+    core: 8
+    model: 0
+  ambiguous: 2
+  top_terms:
+    AI: 8
+    AI assistant: 2
+    agent: 2
+    AI agent: 1
+    MCP: 1

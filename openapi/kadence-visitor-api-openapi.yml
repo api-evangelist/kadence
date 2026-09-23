@@ -1,35 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kadence Public Bookable Day Visitor API
-  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
-
-
-    ## Regional Environments
-
-
-    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
-
-
-    **EU region: (default)**
-
-
-    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
-
-    - API: [https://api.onkadence.co](https://api.onkadence.co)
-
-
-    **US region:**
-
-
-    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
-
-    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
-
-
-    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
-
-
-    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  title: Kadence Public Visitor API
+  description: Kadence is the all-in-one software platform that helps your team thrive at hybrid work.
   version: 1.2.0
   x-logo:
     url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
@@ -440,147 +412,33 @@ paths:
       deprecated: false
 components:
   schemas:
-    Ulid-public_visitor:
+    User.jsonld-public_visitor:
       type: object
       description: ''
       deprecated: false
-    Visitor-public_visitor:
-      type: object
-      description: "Read-only public representation of a visitor.\n\nA visitor is a {@see BookingAttendee} viewed through the visits lens. This DTO serves two roles:\n 1. As a top-level directory projection of visitors, where each entry carries a visit count and\n    the context of its latest visit.\n 2. As the embedded visitor type inside a visit (see the `public_visit` group), where only the\n    core identity/attendance fields are serialised and the directory-only fields are omitted.\n\nThe group split is deliberate: `public_visit` + `public_visitor` mark the core fields that appear\nin both roles, while `public_visitor` alone marks the directory-only fields (visit count + latest\nvisit context) that must NOT leak into a visit's embedded `visitors[]` array.\n\nEvery group name contains the substring `public` because the public OpenAPI doc command filters\nschema keys on that substring — a group without it is silently dropped from the generated spec.\n\nDeliberately NOT exposed: photoStorageRef, healthSelfCertifiedDate, invitationSentDate.\n\nThe `/v1/public/visitors` collection + item operations read from a deduplicated (one row per lowercased\nemail) directory of guest-booking attendees; the collection provider injects the visit count while the\nembedded-in-a-visit role (the `public_visit` group) leaves it null."
-      deprecated: false
       properties:
-        visitCount:
-          description: The total number of visits this visitor has made. Null when embedded inside a visit.
-          type: integer
-          nullable: true
-          example: 3
-        id:
+        '@context':
           readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the visitor.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_visitor'
-        displayName:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The display name of the visitor.
-          example: John Smith
-        firstName:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/givenName
-          type: string
-          nullable: true
-          description: The visitor's given name.
-          example: John
-        lastName:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/familyName
-          type: string
-          nullable: true
-          description: The visitor's family name.
-          example: Smith
-        email:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/email
-          type: string
-          format: email
-          description: The visitor's email address.
-          example: john.smith@example.com
-        type:
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
           readOnly: true
           type: string
-          enum:
-          - external
-          - user
-          description: Whether the visitor is an external guest or an internal Kadence user.
-          example: external
-        userId:
-          readOnly: true
-          nullable: true
-          description: The internal Kadence user this visitor maps to, when the visitor is a user rather than an external guest.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_visitor'
-          - type: 'null'
-        status:
+        '@type':
           readOnly: true
           type: string
-          enum:
-          - none
-          - organizer
-          - tentatively_accepted
-          - accepted
-          - declined
-          - not_responded
-          description: The attendance status of the visitor.
-          example: accepted
-        checkedInDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: The date and time the visitor checked in.
-          example: '2017-07-21T17:32:28+00:00'
-        checkedOutDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: The date and time the visitor checked out.
-          example: '2017-07-21T17:32:28+00:00'
-        visitId:
-          readOnly: true
-          nullable: true
-          description: The ULID of the visitor's latest visit.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/Ulid-public_visitor'
-          - type: 'null'
-        host:
-          readOnly: true
-          nullable: true
-          description: The host of the visitor's latest visit.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_visitor'
-          - type: 'null'
-        building:
-          readOnly: true
-          type: object
-          nullable: true
-          description: The building of the visitor's latest visit.
-        startDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: The start date and time of the visitor's latest visit.
-          example: '2017-07-21T17:32:28+00:00'
-        endDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: The end date and time of the visitor's latest visit.
-          example: '2017-07-21T17:32:28+00:00'
-        visitStatus:
-          readOnly: true
-          type: string
-          enum:
-          - booked
-          - checkedIn
-          - checkedOut
-          - completed
-          - cancelled
-          - noCheckIn
-          nullable: true
-          description: The status of the visitor's latest visit.
-          example: booked
     Ulid.jsonld-public_visitor:
       type: object
       description: ''
@@ -608,10 +466,6 @@ components:
         '@type':
           readOnly: true
           type: string
-    User-public_visitor:
-      type: object
-      description: ''
-      deprecated: false
     Visitor.jsonld-public_visitor:
       type: object
       description: "Read-only public representation of a visitor.\n\nA visitor is a {@see BookingAttendee} viewed through the visits lens. This DTO serves two roles:\n 1. As a top-level directory projection of visitors, where each entry carries a visit count and\n    the context of its latest visit.\n 2. As the embedded visitor type inside a visit (see the `public_visit` group), where only the\n    core identity/attendance fields are serialised and the directory-only fields are omitted.\n\nThe group split is deliberate: `public_visit` + `public_visitor` mark the core fields that appear\nin both roles, while `public_visitor` alone marks the directory-only fields (visit count + latest\nvisit context) that must NOT leak into a visit's embedded `visitors[]` array.\n\nEvery group name contains the substring `public` because the public OpenAPI doc command filters\nschema keys on that substring — a group without it is silently dropped from the generated spec.\n\nDeliberately NOT exposed: photoStorageRef, healthSelfCertifiedDate, invitationSentDate.\n\nThe `/v1/public/visitors` collection + item operations read from a deduplicated (one row per lowercased\nemail) directory of guest-booking attendees; the collection provider injects the visit count while the\nembedded-in-a-visit role (the `public_visit` group) leaves it null."
@@ -771,33 +625,151 @@ components:
           nullable: true
           description: The status of the visitor's latest visit.
           example: booked
-    User.jsonld-public_visitor:
+    Ulid-public_visitor:
       type: object
       description: ''
       deprecated: false
+    Visitor-public_visitor:
+      type: object
+      description: "Read-only public representation of a visitor.\n\nA visitor is a {@see BookingAttendee} viewed through the visits lens. This DTO serves two roles:\n 1. As a top-level directory projection of visitors, where each entry carries a visit count and\n    the context of its latest visit.\n 2. As the embedded visitor type inside a visit (see the `public_visit` group), where only the\n    core identity/attendance fields are serialised and the directory-only fields are omitted.\n\nThe group split is deliberate: `public_visit` + `public_visitor` mark the core fields that appear\nin both roles, while `public_visitor` alone marks the directory-only fields (visit count + latest\nvisit context) that must NOT leak into a visit's embedded `visitors[]` array.\n\nEvery group name contains the substring `public` because the public OpenAPI doc command filters\nschema keys on that substring — a group without it is silently dropped from the generated spec.\n\nDeliberately NOT exposed: photoStorageRef, healthSelfCertifiedDate, invitationSentDate.\n\nThe `/v1/public/visitors` collection + item operations read from a deduplicated (one row per lowercased\nemail) directory of guest-booking attendees; the collection provider injects the visit count while the\nembedded-in-a-visit role (the `public_visit` group) leaves it null."
+      deprecated: false
       properties:
-        '@context':
+        visitCount:
+          description: The total number of visits this visitor has made. Null when embedded inside a visit.
+          type: integer
+          nullable: true
+          example: 3
+        id:
           readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the visitor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_visitor'
+        displayName:
           readOnly: true
           type: string
-        '@type':
+          nullable: true
+          description: The display name of the visitor.
+          example: John Smith
+        firstName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/givenName
+          type: string
+          nullable: true
+          description: The visitor's given name.
+          example: John
+        lastName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/familyName
+          type: string
+          nullable: true
+          description: The visitor's family name.
+          example: Smith
+        email:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/email
+          type: string
+          format: email
+          description: The visitor's email address.
+          example: john.smith@example.com
+        type:
           readOnly: true
           type: string
+          enum:
+          - external
+          - user
+          description: Whether the visitor is an external guest or an internal Kadence user.
+          example: external
+        userId:
+          readOnly: true
+          nullable: true
+          description: The internal Kadence user this visitor maps to, when the visitor is a user rather than an external guest.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_visitor'
+          - type: 'null'
+        status:
+          readOnly: true
+          type: string
+          enum:
+          - none
+          - organizer
+          - tentatively_accepted
+          - accepted
+          - declined
+          - not_responded
+          description: The attendance status of the visitor.
+          example: accepted
+        checkedInDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: The date and time the visitor checked in.
+          example: '2017-07-21T17:32:28+00:00'
+        checkedOutDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: The date and time the visitor checked out.
+          example: '2017-07-21T17:32:28+00:00'
+        visitId:
+          readOnly: true
+          nullable: true
+          description: The ULID of the visitor's latest visit.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/Ulid-public_visitor'
+          - type: 'null'
+        host:
+          readOnly: true
+          nullable: true
+          description: The host of the visitor's latest visit.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_visitor'
+          - type: 'null'
+        building:
+          readOnly: true
+          type: object
+          nullable: true
+          description: The building of the visitor's latest visit.
+        startDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: The start date and time of the visitor's latest visit.
+          example: '2017-07-21T17:32:28+00:00'
+        endDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: The end date and time of the visitor's latest visit.
+          example: '2017-07-21T17:32:28+00:00'
+        visitStatus:
+          readOnly: true
+          type: string
+          enum:
+          - booked
+          - checkedIn
+          - checkedOut
+          - completed
+          - cancelled
+          - noCheckIn
+          nullable: true
+          description: The status of the visitor's latest visit.
+          example: booked
+    User-public_visitor:
+      type: object
+      description: ''
+      deprecated: false
   securitySchemes:
     oauth:
       type: oauth2

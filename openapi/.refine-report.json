@@ -1,17 +1,7 @@
 {
   "provider": "kadence",
   "sources": [
-    "kadence-bookable-day-api-openapi.yml",
-    "kadence-bookable-onsite-pass-api-openapi.yml",
-    "kadence-bookable-space-api-openapi.yml",
-    "kadence-booking-api-openapi.yml",
-    "kadence-building-api-openapi.yml",
-    "kadence-floor-api-openapi.yml",
-    "kadence-neighborhood-api-openapi.yml",
-    "kadence-space-api-openapi.yml",
-    "kadence-user-api-openapi.yml",
-    "kadence-visit-api-openapi.yml",
-    "kadence-visitor-api-openapi.yml"
+    "_original/kadence-public-api-openapi.yml"
   ],
   "outputs": [
     "kadence-bookable-day-api-openapi.yml",
@@ -28,9 +18,36 @@
   ],
   "archived": [],
   "errors": [
-    "kadence-user-api-openapi.yml: dangling $ref: #/components/schemas/User"
+    "kadence-public-api-openapi.yml: dangling $ref: #/components/schemas/User"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "kadence-public-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "kadence-public-api-openapi.yml: declared missing tag: Bookable Day",
+    "kadence-public-api-openapi.yml: declared missing tag: Bookable Onsite Pass",
+    "kadence-public-api-openapi.yml: declared missing tag: Bookable Space",
+    "kadence-public-api-openapi.yml: declared missing tag: Booking",
+    "kadence-public-api-openapi.yml: declared missing tag: Building",
+    "kadence-public-api-openapi.yml: declared missing tag: Floor",
+    "kadence-public-api-openapi.yml: declared missing tag: Neighborhood",
+    "kadence-public-api-openapi.yml: declared missing tag: Space",
+    "kadence-public-api-openapi.yml: declared missing tag: User",
+    "kadence-public-api-openapi.yml: declared missing tag: Visit",
+    "kadence-public-api-openapi.yml: declared missing tag: Visitor",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "kadence-bookable-day-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-bookable-onsite-pass-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-bookable-space-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-booking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-building-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-floor-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-neighborhood-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-space-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-user-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-visit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kadence-visitor-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

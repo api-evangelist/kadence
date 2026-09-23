@@ -1,35 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kadence Public Bookable Day Floor API
-  description: 'Kadence is the all-in-one software platform that helps your team thrive at hybrid work. With our public API you''ll have the capability to seamlessly integrate your own applications with the Kadence, boosting employee productivity, enabling in-person collaboration, and maximizing your workspace to do more with less. To get started, check out our developer [getting started guide](https://help.kadence.co/kb/guide/en/api-getting-started-developer-guide-yUYh7DBxBW/). You can also check out our sample applications on [GitHub](https://github.com/wearekadence/kadence-public-api-examples).
-
-
-    ## Regional Environments
-
-
-    Kadence supports dedicated environments for different geographical regions. When setting up your API integration, make sure you''re using the correct base URLs for your region.
-
-
-    **EU region: (default)**
-
-
-    - Auth: [https://login.onkadence.co](https://login.onkadence.co)
-
-    - API: [https://api.onkadence.co](https://api.onkadence.co)
-
-
-    **US region:**
-
-
-    - Auth: [https://login.us.onkadence.co](https://login.us.onkadence.co)
-
-    - API: [https://api.us.onkadence.co](https://api.us.onkadence.co)
-
-
-    Your region is determined by where your Kadence account was set up. If you''re unsure which region you''re on, contact your account administrator or reach out to Kadence support.
-
-
-    Use the correct auth URL when obtaining your access token, and the correct endpoint for all subsequent requests. Mixing URLs across regions will result in authentication errors.'
+  title: Kadence Public Floor API
+  description: Kadence is the all-in-one software platform that helps your team thrive at hybrid work.
   version: 1.2.0
   x-logo:
     url: https://static.onkadence.co/assets/images/email-header-logo@3x.png
