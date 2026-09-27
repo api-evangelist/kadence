@@ -1580,10 +1580,142 @@ paths:
       deprecated: false
 components:
   schemas:
-    Ulid-public_booking.check_in:
+    Building.jsonld-public_booking:
       type: object
       description: ''
       deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    User-public_booking.check_out:
+      type: object
+      description: ''
+      deprecated: false
+    User.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Uuid.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    User-public_booking.check_in:
+      type: object
+      description: ''
+      deprecated: false
+    Building-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid-public_booking.check_out:
+      type: object
+      description: ''
+      deprecated: false
+    Space-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the space.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_booking'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the space.
+          example: Desk 01
+        type:
+          readOnly: true
+          type: string
+          example: desk
+          description: The type of space.
+        floor:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Floor-public_booking'
+          - type: 'null'
+        neighborhood:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Neighborhood-public_booking'
+          - type: 'null'
+        photo:
+          readOnly: true
+          description: The UUID of the photo of the space.
+          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
+          anyOf:
+          - $ref: '#/components/schemas/Uuid-public_booking'
+          - type: 'null'
     Booking-public_booking:
       type: object
       description: ''
@@ -1885,45 +2017,10 @@ components:
       type: object
       description: ''
       deprecated: false
-    Floor.jsonld-public_booking:
+    Ulid-public_booking:
       type: object
       description: ''
       deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the floor.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the floor.
-          example: Floor 01
     Ulid.jsonld-public_booking:
       type: object
       description: ''
@@ -1990,7 +2087,15 @@ components:
           type: string
           description: The name of the neighborhood.
           example: Sales
-    Building-public_booking:
+    User-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+    Uuid-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid-public_booking.check_in:
       type: object
       description: ''
       deprecated: false
@@ -2299,228 +2404,6 @@ components:
           description: The IRI of the building.
           example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
           $ref: '#/components/schemas/Building.jsonld-public_booking'
-    Ulid-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-    Uuid.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-    Floor-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the floor.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the floor.
-          example: Floor 01
-    User.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-    Building.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-    Space-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the space.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the space.
-          example: Desk 01
-        type:
-          readOnly: true
-          type: string
-          example: desk
-          description: The type of space.
-        floor:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Floor-public_booking'
-          - type: 'null'
-        neighborhood:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Neighborhood-public_booking'
-          - type: 'null'
-        photo:
-          readOnly: true
-          description: The UUID of the photo of the space.
-          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
-          anyOf:
-          - $ref: '#/components/schemas/Uuid-public_booking'
-          - type: 'null'
-    Uuid-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-    Ulid-public_booking.check_out:
-      type: object
-      description: ''
-      deprecated: false
-    Building-public_booking.check_out:
-      type: object
-      description: ''
-      deprecated: false
-    Space.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the space.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the space.
-          example: Desk 01
-        type:
-          readOnly: true
-          type: string
-          example: desk
-          description: The type of space.
-        floor:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Floor.jsonld-public_booking'
-          - type: 'null'
-        neighborhood:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Neighborhood.jsonld-public_booking'
-          - type: 'null'
-        photo:
-          readOnly: true
-          description: The UUID of the photo of the space.
-          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
-          anyOf:
-          - $ref: '#/components/schemas/Uuid.jsonld-public_booking'
-          - type: 'null'
-    User-public_booking.check_out:
-      type: object
-      description: ''
-      deprecated: false
-    User-public_booking:
-      type: object
-      description: ''
-      deprecated: false
     Booking-public_booking.check_out:
       type: object
       description: ''
@@ -2820,7 +2703,7 @@ components:
           description: The IRI of the building.
           example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
           $ref: '#/components/schemas/Building-public_booking.check_out'
-    Neighborhood-public_booking:
+    Floor-public_booking:
       type: object
       description: ''
       deprecated: false
@@ -2829,15 +2712,15 @@ components:
           readOnly: true
           externalDocs:
             url: https://schema.org/identifier
-          description: The ULID of the neighborhood.
+          description: The ULID of the floor.
           example: 01GTBV1CT3BM8A42SEJ2J5F4EG
           $ref: '#/components/schemas/Ulid-public_booking'
         name:
           readOnly: true
           type: string
-          description: The name of the neighborhood.
-          example: Sales
-    User-public_booking.check_in:
+          description: The name of the floor.
+          example: Floor 01
+    Building-public_booking.check_out:
       type: object
       description: ''
       deprecated: false
@@ -3140,6 +3023,123 @@ components:
           description: The IRI of the building.
           example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
           $ref: '#/components/schemas/Building-public_booking.check_in'
+    Floor.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the floor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the floor.
+          example: Floor 01
+    Space.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the space.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the space.
+          example: Desk 01
+        type:
+          readOnly: true
+          type: string
+          example: desk
+          description: The type of space.
+        floor:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Floor.jsonld-public_booking'
+          - type: 'null'
+        neighborhood:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Neighborhood.jsonld-public_booking'
+          - type: 'null'
+        photo:
+          readOnly: true
+          description: The UUID of the photo of the space.
+          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
+          anyOf:
+          - $ref: '#/components/schemas/Uuid.jsonld-public_booking'
+          - type: 'null'
+    Neighborhood-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_booking'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
   securitySchemes:
     oauth:
       type: oauth2

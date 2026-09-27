@@ -158,27 +158,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Ulid-public_neighborhoods:
-      type: object
-      description: ''
-      deprecated: false
-    Neighborhood-public_neighborhoods:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the neighborhood.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_neighborhoods'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the neighborhood.
-          example: Sales
     Neighborhood.jsonld-public_neighborhoods:
       type: object
       description: ''
@@ -199,6 +178,23 @@ components:
           description: The ULID of the neighborhood.
           example: 01GTBV1CT3BM8A42SEJ2J5F4EG
           $ref: '#/components/schemas/Ulid.jsonld-public_neighborhoods'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+    Neighborhood-public_neighborhoods:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_neighborhoods'
         name:
           readOnly: true
           type: string
@@ -231,6 +227,10 @@ components:
         '@type':
           readOnly: true
           type: string
+    Ulid-public_neighborhoods:
+      type: object
+      description: ''
+      deprecated: false
   securitySchemes:
     oauth:
       type: oauth2

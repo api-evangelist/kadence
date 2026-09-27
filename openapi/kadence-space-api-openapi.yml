@@ -170,50 +170,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Floor-public_space:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the floor.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_space'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the floor.
-          example: Floor 01
-    Ulid.jsonld-public_space:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
     Floor.jsonld-public_space:
       type: object
       description: ''
@@ -253,23 +209,6 @@ components:
           type: string
           description: The name of the floor.
           example: Floor 01
-    Neighborhood-public_space:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the neighborhood.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_space'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the neighborhood.
-          example: Sales
     Neighborhood.jsonld-public_space:
       type: object
       description: ''
@@ -309,10 +248,79 @@ components:
           type: string
           description: The name of the neighborhood.
           example: Sales
-    Uuid-public_space:
+    Floor-public_space:
       type: object
       description: ''
       deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the floor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_space'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the floor.
+          example: Floor 01
+    Space-public_space:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the space.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_space'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the space.
+          example: Desk 01
+        type:
+          readOnly: true
+          type: string
+          example: desk
+          description: The type of space.
+        floor:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Floor-public_space'
+          - type: 'null'
+        neighborhood:
+          readOnly: true
+          anyOf:
+          - $ref: '#/components/schemas/Neighborhood-public_space'
+          - type: 'null'
+        photo:
+          readOnly: true
+          description: The UUID of the photo of the space.
+          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
+          anyOf:
+          - $ref: '#/components/schemas/Uuid-public_space'
+          - type: 'null'
+    Neighborhood-public_space:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_space'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
     Space.jsonld-public_space:
       type: object
       description: ''
@@ -360,50 +368,42 @@ components:
           anyOf:
           - $ref: '#/components/schemas/Uuid.jsonld-public_space'
           - type: 'null'
-    Ulid-public_space:
-      type: object
-      description: ''
-      deprecated: false
-    Space-public_space:
+    Uuid.jsonld-public_space:
       type: object
       description: ''
       deprecated: false
       properties:
-        id:
+        '@context':
           readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the space.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_space'
-        name:
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
           readOnly: true
           type: string
-          description: The name of the space.
-          example: Desk 01
-        type:
+        '@type':
           readOnly: true
           type: string
-          example: desk
-          description: The type of space.
-        floor:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Floor-public_space'
-          - type: 'null'
-        neighborhood:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Neighborhood-public_space'
-          - type: 'null'
-        photo:
-          readOnly: true
-          description: The UUID of the photo of the space.
-          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
-          anyOf:
-          - $ref: '#/components/schemas/Uuid-public_space'
-          - type: 'null'
-    Uuid.jsonld-public_space:
+    Uuid-public_space:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid-public_space:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid.jsonld-public_space:
       type: object
       description: ''
       deprecated: false

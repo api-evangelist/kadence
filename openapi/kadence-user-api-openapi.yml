@@ -343,6 +343,141 @@ paths:
       deprecated: false
 components:
   schemas:
+    User.jsonld-public_user:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@id':
+          readOnly: true
+          type: string
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+        '@type':
+          readOnly: true
+          type: string
+          example: User
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The user's ULID within the Kadence platform.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_user'
+        email:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/email
+          type: string
+          format: email
+          description: The user's email address.
+          example: john.smith@example.com
+        firstName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/givenName
+          type: string
+          description: The user's given name.
+          example: John
+        lastName:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/familyName
+          type: string
+          description: The user's family name.
+          example: Smith
+        jobTitle:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/jobTitle
+          type: string
+          nullable: true
+          description: The user's job title.
+          example: Head of Marketing
+        invitationPending:
+          readOnly: true
+          type: boolean
+          description: Has the user signed up to use Kadence or is their invitation to join still pending?
+          example: true
+        preferredFloor:
+          readOnly: true
+          type: object
+          description: The user's preferred floor for booking when going into the office.
+          example:
+            id: 01GTBV1CT3BM8A42SEJ2J5F4EG
+            name: Floor 1
+        createdAt:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/dateCreated
+          type: string
+          format: date-time
+          description: The date and time of when the user was created.
+          example: '2017-07-21T17:32:28+00:00'
+        modifiedAt:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/dateModified
+          type: string
+          format: date-time
+          description: The date and time of when the user was last modified.
+          example: '2017-07-21T17:32:28+00:00'
+        locale:
+          readOnly: true
+          type: string
+          description: A IETF language tag of the user's preferred locale.
+          example: en-GB
+        timePreference:
+          readOnly: true
+          type: string
+          enum:
+          - default
+          - 24H
+          - 12H
+          example: default
+          description: The user's preferred time format. `default` will follow the user's locale.
+        locationCityName:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The city name of user's usual location.
+          example: London
+        locationCountryCode:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The ISO 3166-1 alpha-2 country code of the user's usual location.
+          example: GB
+        locationLatitude:
+          readOnly: true
+          type: number
+          format: float
+          nullable: true
+          description: The latitude of the user's usual location, based on their city.
+          example: 51.509865
+        locationLongitude:
+          readOnly: true
+          type: number
+          format: float
+          nullable: true
+          description: The longitude of the user's usual location, based on their city.
+          example: -0.118092
+        locationTimezone:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The usual IANA time zone of the user, based on their city.
+          example: Europe/London
+        biography:
+          readOnly: true
+          type: string
+          nullable: true
+          description: A short biography.
+          example: I love 🍕!
+        monogram:
+          readOnly: true
+          type: string
+          description: A two letter identifier made from their full name or email address.
+          example: JS
     User-public_user:
       type: object
       description: ''
@@ -501,141 +636,6 @@ components:
       type: object
       description: ''
       deprecated: false
-    User.jsonld-public_user:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@id':
-          readOnly: true
-          type: string
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-        '@type':
-          readOnly: true
-          type: string
-          example: User
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The user's ULID within the Kadence platform.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_user'
-        email:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/email
-          type: string
-          format: email
-          description: The user's email address.
-          example: john.smith@example.com
-        firstName:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/givenName
-          type: string
-          description: The user's given name.
-          example: John
-        lastName:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/familyName
-          type: string
-          description: The user's family name.
-          example: Smith
-        jobTitle:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/jobTitle
-          type: string
-          nullable: true
-          description: The user's job title.
-          example: Head of Marketing
-        invitationPending:
-          readOnly: true
-          type: boolean
-          description: Has the user signed up to use Kadence or is their invitation to join still pending?
-          example: true
-        preferredFloor:
-          readOnly: true
-          type: object
-          description: The user's preferred floor for booking when going into the office.
-          example:
-            id: 01GTBV1CT3BM8A42SEJ2J5F4EG
-            name: Floor 1
-        createdAt:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/dateCreated
-          type: string
-          format: date-time
-          description: The date and time of when the user was created.
-          example: '2017-07-21T17:32:28+00:00'
-        modifiedAt:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/dateModified
-          type: string
-          format: date-time
-          description: The date and time of when the user was last modified.
-          example: '2017-07-21T17:32:28+00:00'
-        locale:
-          readOnly: true
-          type: string
-          description: A IETF language tag of the user's preferred locale.
-          example: en-GB
-        timePreference:
-          readOnly: true
-          type: string
-          enum:
-          - default
-          - 24H
-          - 12H
-          example: default
-          description: The user's preferred time format. `default` will follow the user's locale.
-        locationCityName:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The city name of user's usual location.
-          example: London
-        locationCountryCode:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The ISO 3166-1 alpha-2 country code of the user's usual location.
-          example: GB
-        locationLatitude:
-          readOnly: true
-          type: number
-          format: float
-          nullable: true
-          description: The latitude of the user's usual location, based on their city.
-          example: 51.509865
-        locationLongitude:
-          readOnly: true
-          type: number
-          format: float
-          nullable: true
-          description: The longitude of the user's usual location, based on their city.
-          example: -0.118092
-        locationTimezone:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The usual IANA time zone of the user, based on their city.
-          example: Europe/London
-        biography:
-          readOnly: true
-          type: string
-          nullable: true
-          description: A short biography.
-          example: I love 🍕!
-        monogram:
-          readOnly: true
-          type: string
-          description: A two letter identifier made from their full name or email address.
-          example: JS
   securitySchemes:
     oauth:
       type: oauth2
