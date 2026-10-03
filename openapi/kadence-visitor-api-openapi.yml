@@ -439,41 +439,6 @@ components:
         '@type':
           readOnly: true
           type: string
-    Ulid-public_visitor:
-      type: object
-      description: ''
-      deprecated: false
-    Ulid.jsonld-public_visitor:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-    User-public_visitor:
-      type: object
-      description: ''
-      deprecated: false
     Visitor.jsonld-public_visitor:
       type: object
       description: "Read-only public representation of a visitor.\n\nA visitor is a {@see BookingAttendee} viewed through the visits lens. This DTO serves two roles:\n 1. As a top-level directory projection of visitors, where each entry carries a visit count and\n    the context of its latest visit.\n 2. As the embedded visitor type inside a visit (see the `public_visit` group), where only the\n    core identity/attendance fields are serialised and the directory-only fields are omitted.\n\nThe group split is deliberate: `public_visit` + `public_visitor` mark the core fields that appear\nin both roles, while `public_visitor` alone marks the directory-only fields (visit count + latest\nvisit context) that must NOT leak into a visit's embedded `visitors[]` array.\n\nEvery group name contains the substring `public` because the public OpenAPI doc command filters\nschema keys on that substring — a group without it is silently dropped from the generated spec.\n\nDeliberately NOT exposed: photoStorageRef, healthSelfCertifiedDate, invitationSentDate.\n\nThe `/v1/public/visitors` collection + item operations read from a deduplicated (one row per lowercased\nemail) directory of guest-booking attendees; the collection provider injects the visit count while the\nembedded-in-a-visit role (the `public_visit` group) leaves it null."
@@ -770,6 +735,41 @@ components:
           nullable: true
           description: The status of the visitor's latest visit.
           example: booked
+    Ulid-public_visitor:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid.jsonld-public_visitor:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    User-public_visitor:
+      type: object
+      description: ''
+      deprecated: false
   securitySchemes:
     oauth:
       type: oauth2

@@ -343,26 +343,18 @@ paths:
       deprecated: false
 components:
   schemas:
-    User.jsonld-public_user:
+    User-public_user:
       type: object
       description: ''
       deprecated: false
       properties:
-        '@id':
-          readOnly: true
-          type: string
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-        '@type':
-          readOnly: true
-          type: string
-          example: User
         id:
           readOnly: true
           externalDocs:
             url: https://schema.org/identifier
           description: The user's ULID within the Kadence platform.
           example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_user'
+          $ref: '#/components/schemas/Ulid-public_user'
         email:
           readOnly: true
           externalDocs:
@@ -478,18 +470,30 @@ components:
           type: string
           description: A two letter identifier made from their full name or email address.
           example: JS
-    User-public_user:
+    Ulid-public_user:
+      type: object
+      description: ''
+      deprecated: false
+    User.jsonld-public_user:
       type: object
       description: ''
       deprecated: false
       properties:
+        '@id':
+          readOnly: true
+          type: string
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+        '@type':
+          readOnly: true
+          type: string
+          example: User
         id:
           readOnly: true
           externalDocs:
             url: https://schema.org/identifier
           description: The user's ULID within the Kadence platform.
           example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_user'
+          $ref: '#/components/schemas/Ulid.jsonld-public_user'
         email:
           readOnly: true
           externalDocs:
@@ -632,10 +636,6 @@ components:
         '@type':
           readOnly: true
           type: string
-    Ulid-public_user:
-      type: object
-      description: ''
-      deprecated: false
   securitySchemes:
     oauth:
       type: oauth2

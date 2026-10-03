@@ -1580,7 +1580,32 @@ paths:
       deprecated: false
 components:
   schemas:
-    Building.jsonld-public_booking:
+    Neighborhood-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_booking'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+    Uuid-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid-public_booking.check_in:
+      type: object
+      description: ''
+      deprecated: false
+    Space.jsonld-public_booking:
       type: object
       description: ''
       deprecated: false
@@ -1607,76 +1632,40 @@ components:
         '@type':
           readOnly: true
           type: string
-    User-public_booking.check_out:
-      type: object
-      description: ''
-      deprecated: false
-    User.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
+        id:
           readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the space.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
+        name:
           readOnly: true
           type: string
-        '@type':
+          description: The name of the space.
+          example: Desk 01
+        type:
           readOnly: true
           type: string
-    Uuid.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
+          example: desk
+          description: The type of space.
+        floor:
           readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
+          anyOf:
+          - $ref: '#/components/schemas/Floor.jsonld-public_booking'
+          - type: 'null'
+        neighborhood:
           readOnly: true
-          type: string
-        '@type':
+          anyOf:
+          - $ref: '#/components/schemas/Neighborhood.jsonld-public_booking'
+          - type: 'null'
+        photo:
           readOnly: true
-          type: string
-    User-public_booking.check_in:
-      type: object
-      description: ''
-      deprecated: false
-    Building-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-    Ulid-public_booking.check_out:
-      type: object
-      description: ''
-      deprecated: false
+          description: The UUID of the photo of the space.
+          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
+          anyOf:
+          - $ref: '#/components/schemas/Uuid.jsonld-public_booking'
+          - type: 'null'
     Space-public_booking:
       type: object
       description: ''
@@ -1716,6 +1705,142 @@ components:
           anyOf:
           - $ref: '#/components/schemas/Uuid-public_booking'
           - type: 'null'
+    Neighborhood.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+    Ulid.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Building-public_booking.check_in:
+      type: object
+      description: ''
+      deprecated: false
+    Floor.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the floor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the floor.
+          example: Floor 01
+    Uuid.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
     Booking-public_booking:
       type: object
       description: ''
@@ -2013,89 +2138,700 @@ components:
           description: The IRI of the building.
           example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
           $ref: '#/components/schemas/Building-public_booking'
-    Building-public_booking.check_in:
+    Ulid-public_booking.check_out:
       type: object
       description: ''
       deprecated: false
-    Ulid-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-    Ulid.jsonld-public_booking:
+    Booking-public_booking.check_out:
       type: object
       description: ''
       deprecated: false
       properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-    Neighborhood.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
         id:
           readOnly: true
           externalDocs:
             url: https://schema.org/identifier
-          description: The ULID of the neighborhood.
+          description: The ULID of the booking.
           example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
+          $ref: '#/components/schemas/Ulid-public_booking.check_out'
+        createdUserId:
+          readOnly: true
+          description: The IRI of the user who created the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_out'
+          - type: 'null'
+        userId:
+          readOnly: true
+          description: The IRI of the user who the booking is for.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_out'
+          - type: 'null'
+        space:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+          format: iri-reference
+          example: https://example.com/
+        startDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the beginning of the booking.
+          example: '2017-07-21T17:32:28+00:00'
+        endDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the end of the booking.
+          example: '2017-07-21T17:32:28+00:00'
+        createdAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was created at.
+          example: '2017-07-21T17:32:28+00:00'
+        updatedAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was last updated at.
+          example: '2017-07-21T17:32:28+00:00'
+        checkedInUserId:
+          readOnly: true
+          nullable: true
+          description: The IRI of the user who checked into the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_out'
+          - type: 'null'
+        checkedInDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was checked in at.
+          example: '2017-07-21T17:32:28+00:00'
+        checkedInSource:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was checked in from.
+          example: web
+        checkInMethod:
+          readOnly: true
+          type: string
+          nullable: true
+          enum:
+          - doorAccess
+          - wifi
+          - geofence
+          - sensor
+          description: If checked in from the public API, the method used during check in.
+          example: doorAccess
+        checkOutMethod:
+          readOnly: true
+          type: string
+          nullable: true
+          enum:
+          - doorAccess
+          - wifi
+          - geofence
+          - sensor
+          description: If checked out from the public API, the method used during check out.
+          example: doorAccess
+        checkedOutUser:
+          readOnly: true
+          nullable: true
+          description: The IRI of the user who checked out of the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_out'
+          - type: 'null'
+        checkedOutDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was checked out at.
+          example: '2017-07-21T17:32:28+00:00'
+        checkOutSource:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was checked out from.
+          example: web
+        permanent:
+          readOnly: true
+          type: boolean
+          description: If this is a booking created from an assigned space.
+          example: false
+        hasGuests:
+          readOnly: true
+          type: boolean
+          description: If this booking has guests.
+          example: false
+        guestBooking:
+          readOnly: true
+          type: boolean
+          description: If this booking is for a guest.
+          example: false
+        recurringBooking:
+          readOnly: true
+          type: boolean
+          description: If this booking is part of a recurring series of bookings.
+          example: false
+        selfCertifiedDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was self-certified at.
+          example: '2017-07-21T17:32:28+00:00'
+        selfCertifySource:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was self-certified from.
+          example: web
+        source:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was created from.
+          example: web
+        autoReleasedDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: The date and time the booking was auto released.
+          example: '2017-07-21T17:32:28+00:00'
+        cancelledUserId:
+          readOnly: true
+          nullable: true
+          description: The IRI of the user who cancelled the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_out'
+          - type: 'null'
+        bookingUserEmail:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The email of the user who the booking is for.
+          example: john@example.com
+        bookingCreatedByUserEmail:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The email of the user who created the booking.
+          example: john@example.com
+        cancelledDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: If cancelled, the date and time the booking was cancelled.
+          example: '2017-07-21T17:32:28+00:00'
+        cancellationReason:
+          readOnly: true
+          type: string
+          nullable: true
+          enum:
+          - byUser
+          - byUserInBulk
+          - autoSpaceRelease
+          - permanentDesk
+          - changeInBuildingPolicy
+          - changeInCompanyPolicy
+          - removedFromCalendarByProvider
+          - removedFromCalendarByKadence
+          - calendarSyncError
+          - spaceNoLongerAvailable
+          - spaceRestricted
+          - spaceNotRestrictedAnymore
+          - userDeleted
+          - buildingClosure
+          description: If cancelled, the reason for the cancellation.
+          example: byUser
+        title:
+          readOnly: true
+          type: string
+          nullable: true
+          description: If a room booking, the title of the associated calendar event.
+          example: null
+        status:
+          readOnly: true
+          type: string
+          enum:
+          - booked
+          - checkedIn
+          - checkedOut
+          - cancelled
+          - completed
+          - noCheckIn
+          - unknown
+          description: The current booking status.
+          example: booked
+        type:
+          readOnly: true
+          type: string
+          enum:
+          - desk
+          - private_office
+          - room
+          - onsite
+          - locker
+          - pod
+          - parking
+          example: desk
+          description: The type of booking.
+        onlineMeeting:
+          readOnly: true
+          type: boolean
+          nullable: true
+          description: If a room booking, is the associated calendar event an online meeting?
+          example: null
+        onlineMeetingUrl:
+          readOnly: true
+          type: boolean
+          nullable: true
+          description: If a room booking, the online meeting joining url, if available.
+          example: null
+        icalUid:
+          readOnly: true
+          type: boolean
+          nullable: true
+          description: If a room booking, the associated iCal UID of the calendar event.
+          example: null
+        building:
+          readOnly: true
+          description: The IRI of the building.
+          example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Building-public_booking.check_out'
+    Building.jsonld-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Building-public_booking.check_out:
+      type: object
+      description: ''
+      deprecated: false
+    Building-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+    User-public_booking.check_in:
+      type: object
+      description: ''
+      deprecated: false
+    Floor-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the floor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_booking'
         name:
           readOnly: true
           type: string
-          description: The name of the neighborhood.
-          example: Sales
+          description: The name of the floor.
+          example: Floor 01
+    Booking-public_booking.check_in:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the booking.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_booking.check_in'
+        createdUserId:
+          readOnly: true
+          description: The IRI of the user who created the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_in'
+          - type: 'null'
+        userId:
+          readOnly: true
+          description: The IRI of the user who the booking is for.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_in'
+          - type: 'null'
+        space:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+          format: iri-reference
+          example: https://example.com/
+        startDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the beginning of the booking.
+          example: '2017-07-21T17:32:28+00:00'
+        endDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the end of the booking.
+          example: '2017-07-21T17:32:28+00:00'
+        createdAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was created at.
+          example: '2017-07-21T17:32:28+00:00'
+        updatedAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was last updated at.
+          example: '2017-07-21T17:32:28+00:00'
+        checkedInUserId:
+          readOnly: true
+          nullable: true
+          description: The IRI of the user who checked into the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_in'
+          - type: 'null'
+        checkedInDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was checked in at.
+          example: '2017-07-21T17:32:28+00:00'
+        checkedInSource:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was checked in from.
+          example: web
+        checkInMethod:
+          readOnly: true
+          type: string
+          nullable: true
+          enum:
+          - doorAccess
+          - wifi
+          - geofence
+          - sensor
+          description: If checked in from the public API, the method used during check in.
+          example: doorAccess
+        checkOutMethod:
+          readOnly: true
+          type: string
+          nullable: true
+          enum:
+          - doorAccess
+          - wifi
+          - geofence
+          - sensor
+          description: If checked out from the public API, the method used during check out.
+          example: doorAccess
+        checkedOutUser:
+          readOnly: true
+          nullable: true
+          description: The IRI of the user who checked out of the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_in'
+          - type: 'null'
+        checkedOutDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was checked out at.
+          example: '2017-07-21T17:32:28+00:00'
+        checkOutSource:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was checked out from.
+          example: web
+        permanent:
+          readOnly: true
+          type: boolean
+          description: If this is a booking created from an assigned space.
+          example: false
+        hasGuests:
+          readOnly: true
+          type: boolean
+          description: If this booking has guests.
+          example: false
+        guestBooking:
+          readOnly: true
+          type: boolean
+          description: If this booking is for a guest.
+          example: false
+        recurringBooking:
+          readOnly: true
+          type: boolean
+          description: If this booking is part of a recurring series of bookings.
+          example: false
+        selfCertifiedDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time the booking was self-certified at.
+          example: '2017-07-21T17:32:28+00:00'
+        selfCertifySource:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was self-certified from.
+          example: web
+        source:
+          readOnly: true
+          type: string
+          enum:
+          - web
+          - ios
+          - android
+          - calendar
+          - publicApi
+          - slack
+          - msTeams
+          - unknown
+          description: The platform the booking was created from.
+          example: web
+        autoReleasedDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: The date and time the booking was auto released.
+          example: '2017-07-21T17:32:28+00:00'
+        cancelledUserId:
+          readOnly: true
+          nullable: true
+          description: The IRI of the user who cancelled the booking.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_booking.check_in'
+          - type: 'null'
+        bookingUserEmail:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The email of the user who the booking is for.
+          example: john@example.com
+        bookingCreatedByUserEmail:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The email of the user who created the booking.
+          example: john@example.com
+        cancelledDate:
+          readOnly: true
+          type: string
+          format: date-time
+          nullable: true
+          description: If cancelled, the date and time the booking was cancelled.
+          example: '2017-07-21T17:32:28+00:00'
+        cancellationReason:
+          readOnly: true
+          type: string
+          nullable: true
+          enum:
+          - byUser
+          - byUserInBulk
+          - autoSpaceRelease
+          - permanentDesk
+          - changeInBuildingPolicy
+          - changeInCompanyPolicy
+          - removedFromCalendarByProvider
+          - removedFromCalendarByKadence
+          - calendarSyncError
+          - spaceNoLongerAvailable
+          - spaceRestricted
+          - spaceNotRestrictedAnymore
+          - userDeleted
+          - buildingClosure
+          description: If cancelled, the reason for the cancellation.
+          example: byUser
+        title:
+          readOnly: true
+          type: string
+          nullable: true
+          description: If a room booking, the title of the associated calendar event.
+          example: null
+        status:
+          readOnly: true
+          type: string
+          enum:
+          - booked
+          - checkedIn
+          - checkedOut
+          - cancelled
+          - completed
+          - noCheckIn
+          - unknown
+          description: The current booking status.
+          example: booked
+        type:
+          readOnly: true
+          type: string
+          enum:
+          - desk
+          - private_office
+          - room
+          - onsite
+          - locker
+          - pod
+          - parking
+          example: desk
+          description: The type of booking.
+        onlineMeeting:
+          readOnly: true
+          type: boolean
+          nullable: true
+          description: If a room booking, is the associated calendar event an online meeting?
+          example: null
+        onlineMeetingUrl:
+          readOnly: true
+          type: boolean
+          nullable: true
+          description: If a room booking, the online meeting joining url, if available.
+          example: null
+        icalUid:
+          readOnly: true
+          type: boolean
+          nullable: true
+          description: If a room booking, the associated iCal UID of the calendar event.
+          example: null
+        building:
+          readOnly: true
+          description: The IRI of the building.
+          example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Building-public_booking.check_in'
     User-public_booking:
       type: object
       description: ''
       deprecated: false
-    Uuid-public_booking:
+    User.jsonld-public_booking:
       type: object
       description: ''
       deprecated: false
-    Ulid-public_booking.check_in:
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Ulid-public_booking:
+      type: object
+      description: ''
+      deprecated: false
+    User-public_booking.check_out:
       type: object
       description: ''
       deprecated: false
@@ -2404,742 +3140,6 @@ components:
           description: The IRI of the building.
           example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
           $ref: '#/components/schemas/Building.jsonld-public_booking'
-    Booking-public_booking.check_out:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the booking.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_booking.check_out'
-        createdUserId:
-          readOnly: true
-          description: The IRI of the user who created the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_out'
-          - type: 'null'
-        userId:
-          readOnly: true
-          description: The IRI of the user who the booking is for.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_out'
-          - type: 'null'
-        space:
-          readOnly: true
-          type:
-          - string
-          - 'null'
-          format: iri-reference
-          example: https://example.com/
-        startDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time of the beginning of the booking.
-          example: '2017-07-21T17:32:28+00:00'
-        endDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time of the end of the booking.
-          example: '2017-07-21T17:32:28+00:00'
-        createdAt:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was created at.
-          example: '2017-07-21T17:32:28+00:00'
-        updatedAt:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was last updated at.
-          example: '2017-07-21T17:32:28+00:00'
-        checkedInUserId:
-          readOnly: true
-          nullable: true
-          description: The IRI of the user who checked into the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_out'
-          - type: 'null'
-        checkedInDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was checked in at.
-          example: '2017-07-21T17:32:28+00:00'
-        checkedInSource:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was checked in from.
-          example: web
-        checkInMethod:
-          readOnly: true
-          type: string
-          nullable: true
-          enum:
-          - doorAccess
-          - wifi
-          - geofence
-          - sensor
-          description: If checked in from the public API, the method used during check in.
-          example: doorAccess
-        checkOutMethod:
-          readOnly: true
-          type: string
-          nullable: true
-          enum:
-          - doorAccess
-          - wifi
-          - geofence
-          - sensor
-          description: If checked out from the public API, the method used during check out.
-          example: doorAccess
-        checkedOutUser:
-          readOnly: true
-          nullable: true
-          description: The IRI of the user who checked out of the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_out'
-          - type: 'null'
-        checkedOutDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was checked out at.
-          example: '2017-07-21T17:32:28+00:00'
-        checkOutSource:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was checked out from.
-          example: web
-        permanent:
-          readOnly: true
-          type: boolean
-          description: If this is a booking created from an assigned space.
-          example: false
-        hasGuests:
-          readOnly: true
-          type: boolean
-          description: If this booking has guests.
-          example: false
-        guestBooking:
-          readOnly: true
-          type: boolean
-          description: If this booking is for a guest.
-          example: false
-        recurringBooking:
-          readOnly: true
-          type: boolean
-          description: If this booking is part of a recurring series of bookings.
-          example: false
-        selfCertifiedDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was self-certified at.
-          example: '2017-07-21T17:32:28+00:00'
-        selfCertifySource:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was self-certified from.
-          example: web
-        source:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was created from.
-          example: web
-        autoReleasedDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: The date and time the booking was auto released.
-          example: '2017-07-21T17:32:28+00:00'
-        cancelledUserId:
-          readOnly: true
-          nullable: true
-          description: The IRI of the user who cancelled the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_out'
-          - type: 'null'
-        bookingUserEmail:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The email of the user who the booking is for.
-          example: john@example.com
-        bookingCreatedByUserEmail:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The email of the user who created the booking.
-          example: john@example.com
-        cancelledDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: If cancelled, the date and time the booking was cancelled.
-          example: '2017-07-21T17:32:28+00:00'
-        cancellationReason:
-          readOnly: true
-          type: string
-          nullable: true
-          enum:
-          - byUser
-          - byUserInBulk
-          - autoSpaceRelease
-          - permanentDesk
-          - changeInBuildingPolicy
-          - changeInCompanyPolicy
-          - removedFromCalendarByProvider
-          - removedFromCalendarByKadence
-          - calendarSyncError
-          - spaceNoLongerAvailable
-          - spaceRestricted
-          - spaceNotRestrictedAnymore
-          - userDeleted
-          - buildingClosure
-          description: If cancelled, the reason for the cancellation.
-          example: byUser
-        title:
-          readOnly: true
-          type: string
-          nullable: true
-          description: If a room booking, the title of the associated calendar event.
-          example: null
-        status:
-          readOnly: true
-          type: string
-          enum:
-          - booked
-          - checkedIn
-          - checkedOut
-          - cancelled
-          - completed
-          - noCheckIn
-          - unknown
-          description: The current booking status.
-          example: booked
-        type:
-          readOnly: true
-          type: string
-          enum:
-          - desk
-          - private_office
-          - room
-          - onsite
-          - locker
-          - pod
-          - parking
-          example: desk
-          description: The type of booking.
-        onlineMeeting:
-          readOnly: true
-          type: boolean
-          nullable: true
-          description: If a room booking, is the associated calendar event an online meeting?
-          example: null
-        onlineMeetingUrl:
-          readOnly: true
-          type: boolean
-          nullable: true
-          description: If a room booking, the online meeting joining url, if available.
-          example: null
-        icalUid:
-          readOnly: true
-          type: boolean
-          nullable: true
-          description: If a room booking, the associated iCal UID of the calendar event.
-          example: null
-        building:
-          readOnly: true
-          description: The IRI of the building.
-          example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Building-public_booking.check_out'
-    Floor-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the floor.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the floor.
-          example: Floor 01
-    Building-public_booking.check_out:
-      type: object
-      description: ''
-      deprecated: false
-    Booking-public_booking.check_in:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the booking.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_booking.check_in'
-        createdUserId:
-          readOnly: true
-          description: The IRI of the user who created the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_in'
-          - type: 'null'
-        userId:
-          readOnly: true
-          description: The IRI of the user who the booking is for.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_in'
-          - type: 'null'
-        space:
-          readOnly: true
-          type:
-          - string
-          - 'null'
-          format: iri-reference
-          example: https://example.com/
-        startDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time of the beginning of the booking.
-          example: '2017-07-21T17:32:28+00:00'
-        endDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time of the end of the booking.
-          example: '2017-07-21T17:32:28+00:00'
-        createdAt:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was created at.
-          example: '2017-07-21T17:32:28+00:00'
-        updatedAt:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was last updated at.
-          example: '2017-07-21T17:32:28+00:00'
-        checkedInUserId:
-          readOnly: true
-          nullable: true
-          description: The IRI of the user who checked into the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_in'
-          - type: 'null'
-        checkedInDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was checked in at.
-          example: '2017-07-21T17:32:28+00:00'
-        checkedInSource:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was checked in from.
-          example: web
-        checkInMethod:
-          readOnly: true
-          type: string
-          nullable: true
-          enum:
-          - doorAccess
-          - wifi
-          - geofence
-          - sensor
-          description: If checked in from the public API, the method used during check in.
-          example: doorAccess
-        checkOutMethod:
-          readOnly: true
-          type: string
-          nullable: true
-          enum:
-          - doorAccess
-          - wifi
-          - geofence
-          - sensor
-          description: If checked out from the public API, the method used during check out.
-          example: doorAccess
-        checkedOutUser:
-          readOnly: true
-          nullable: true
-          description: The IRI of the user who checked out of the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_in'
-          - type: 'null'
-        checkedOutDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was checked out at.
-          example: '2017-07-21T17:32:28+00:00'
-        checkOutSource:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was checked out from.
-          example: web
-        permanent:
-          readOnly: true
-          type: boolean
-          description: If this is a booking created from an assigned space.
-          example: false
-        hasGuests:
-          readOnly: true
-          type: boolean
-          description: If this booking has guests.
-          example: false
-        guestBooking:
-          readOnly: true
-          type: boolean
-          description: If this booking is for a guest.
-          example: false
-        recurringBooking:
-          readOnly: true
-          type: boolean
-          description: If this booking is part of a recurring series of bookings.
-          example: false
-        selfCertifiedDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time the booking was self-certified at.
-          example: '2017-07-21T17:32:28+00:00'
-        selfCertifySource:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was self-certified from.
-          example: web
-        source:
-          readOnly: true
-          type: string
-          enum:
-          - web
-          - ios
-          - android
-          - calendar
-          - publicApi
-          - slack
-          - msTeams
-          - unknown
-          description: The platform the booking was created from.
-          example: web
-        autoReleasedDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: The date and time the booking was auto released.
-          example: '2017-07-21T17:32:28+00:00'
-        cancelledUserId:
-          readOnly: true
-          nullable: true
-          description: The IRI of the user who cancelled the booking.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_booking.check_in'
-          - type: 'null'
-        bookingUserEmail:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The email of the user who the booking is for.
-          example: john@example.com
-        bookingCreatedByUserEmail:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The email of the user who created the booking.
-          example: john@example.com
-        cancelledDate:
-          readOnly: true
-          type: string
-          format: date-time
-          nullable: true
-          description: If cancelled, the date and time the booking was cancelled.
-          example: '2017-07-21T17:32:28+00:00'
-        cancellationReason:
-          readOnly: true
-          type: string
-          nullable: true
-          enum:
-          - byUser
-          - byUserInBulk
-          - autoSpaceRelease
-          - permanentDesk
-          - changeInBuildingPolicy
-          - changeInCompanyPolicy
-          - removedFromCalendarByProvider
-          - removedFromCalendarByKadence
-          - calendarSyncError
-          - spaceNoLongerAvailable
-          - spaceRestricted
-          - spaceNotRestrictedAnymore
-          - userDeleted
-          - buildingClosure
-          description: If cancelled, the reason for the cancellation.
-          example: byUser
-        title:
-          readOnly: true
-          type: string
-          nullable: true
-          description: If a room booking, the title of the associated calendar event.
-          example: null
-        status:
-          readOnly: true
-          type: string
-          enum:
-          - booked
-          - checkedIn
-          - checkedOut
-          - cancelled
-          - completed
-          - noCheckIn
-          - unknown
-          description: The current booking status.
-          example: booked
-        type:
-          readOnly: true
-          type: string
-          enum:
-          - desk
-          - private_office
-          - room
-          - onsite
-          - locker
-          - pod
-          - parking
-          example: desk
-          description: The type of booking.
-        onlineMeeting:
-          readOnly: true
-          type: boolean
-          nullable: true
-          description: If a room booking, is the associated calendar event an online meeting?
-          example: null
-        onlineMeetingUrl:
-          readOnly: true
-          type: boolean
-          nullable: true
-          description: If a room booking, the online meeting joining url, if available.
-          example: null
-        icalUid:
-          readOnly: true
-          type: boolean
-          nullable: true
-          description: If a room booking, the associated iCal UID of the calendar event.
-          example: null
-        building:
-          readOnly: true
-          description: The IRI of the building.
-          example: /v1/public/buildings/01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Building-public_booking.check_in'
-    Floor.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the floor.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the floor.
-          example: Floor 01
-    Space.jsonld-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the space.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the space.
-          example: Desk 01
-        type:
-          readOnly: true
-          type: string
-          example: desk
-          description: The type of space.
-        floor:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Floor.jsonld-public_booking'
-          - type: 'null'
-        neighborhood:
-          readOnly: true
-          anyOf:
-          - $ref: '#/components/schemas/Neighborhood.jsonld-public_booking'
-          - type: 'null'
-        photo:
-          readOnly: true
-          description: The UUID of the photo of the space.
-          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
-          anyOf:
-          - $ref: '#/components/schemas/Uuid.jsonld-public_booking'
-          - type: 'null'
-    Neighborhood-public_booking:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the neighborhood.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_booking'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the neighborhood.
-          example: Sales
   securitySchemes:
     oauth:
       type: oauth2

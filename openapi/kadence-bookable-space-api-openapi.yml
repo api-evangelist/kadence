@@ -130,18 +130,24 @@ paths:
       deprecated: false
 components:
   schemas:
-    Bookable.Space-public_bookable_space.list:
+    Bookable.Space.jsonld-public_bookable_space.list:
       type: object
       description: ''
       deprecated: false
       properties:
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
         id:
           readOnly: true
           externalDocs:
             url: https://schema.org/identifier
           description: The ULID of the space.
           example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_bookable_space.list'
+          $ref: '#/components/schemas/Ulid.jsonld-public_bookable_space.list'
         name:
           readOnly: true
           type: string
@@ -155,52 +161,8 @@ components:
         neighborhood:
           readOnly: true
           anyOf:
-          - $ref: '#/components/schemas/Neighborhood-public_bookable_space.list'
+          - $ref: '#/components/schemas/Neighborhood.jsonld-public_bookable_space.list'
           - type: 'null'
-    Ulid.jsonld-public_bookable_space.list:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-    Neighborhood-public_bookable_space.list:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the neighborhood.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_bookable_space.list'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the neighborhood.
-          example: Sales
     Neighborhood.jsonld-public_bookable_space.list:
       type: object
       description: ''
@@ -244,24 +206,62 @@ components:
       type: object
       description: ''
       deprecated: false
-    Bookable.Space.jsonld-public_bookable_space.list:
+    Neighborhood-public_bookable_space.list:
       type: object
       description: ''
       deprecated: false
       properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_bookable_space.list'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
+    Ulid.jsonld-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
         '@id':
           readOnly: true
           type: string
         '@type':
           readOnly: true
           type: string
+    Bookable.Space-public_bookable_space.list:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
         id:
           readOnly: true
           externalDocs:
             url: https://schema.org/identifier
           description: The ULID of the space.
           example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid.jsonld-public_bookable_space.list'
+          $ref: '#/components/schemas/Ulid-public_bookable_space.list'
         name:
           readOnly: true
           type: string
@@ -275,7 +275,7 @@ components:
         neighborhood:
           readOnly: true
           anyOf:
-          - $ref: '#/components/schemas/Neighborhood.jsonld-public_bookable_space.list'
+          - $ref: '#/components/schemas/Neighborhood-public_bookable_space.list'
           - type: 'null'
   securitySchemes:
     oauth:

@@ -182,144 +182,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Building-public_building:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the building.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_building'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the building.
-          example: London Office
-        timeZone:
-          readOnly: true
-          type: string
-          description: The IANA time zone that the building is in.
-          example: Europe/London
-        latitude:
-          readOnly: true
-          type: number
-          format: float
-          description: The latitude of the building's location.
-          example: 51.509865
-        longitude:
-          readOnly: true
-          type: number
-          format: float
-          description: The longitude of the building's location.
-          example: -0.118092
-        addressLine1:
-          readOnly: true
-          type: string
-          description: The first line of the building address.
-          example: 20 Fenchurch Street
-        addressLine2:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The second line of the building address.
-          example: null
-        city:
-          readOnly: true
-          type: string
-          description: The name of the city that the building is in.
-          example: London
-        county:
-          readOnly: true
-          type: string
-          nullable: true
-          description: The name of the county that the building is in.
-          example: null
-        countryCode:
-          readOnly: true
-          type: string
-          description: The ISO 3166-1 alpha-2 country code that the building is in.
-          example: GB
-        photo:
-          readOnly: true
-          description: The UUID of the photo of the building.
-          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
-          anyOf:
-          - $ref: '#/components/schemas/Uuid-public_building'
-          - type: 'null'
-        createdAt:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time that the building was created at.
-          example: '2017-07-21T17:32:28+00:00'
-        modifiedAt:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time that the building was last modified at.
-          example: '2017-07-21T17:32:28+00:00'
-    Uuid.jsonld-public_building:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-    Uuid-public_building:
-      type: object
-      description: ''
-      deprecated: false
-    Ulid.jsonld-public_building:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
     Ulid-public_building:
       type: object
       description: ''
@@ -399,6 +261,144 @@ components:
           example: b74b830a-cf26-47bd-9dbc-237571c79fc3
           anyOf:
           - $ref: '#/components/schemas/Uuid.jsonld-public_building'
+          - type: 'null'
+        createdAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time that the building was created at.
+          example: '2017-07-21T17:32:28+00:00'
+        modifiedAt:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time that the building was last modified at.
+          example: '2017-07-21T17:32:28+00:00'
+    Uuid-public_building:
+      type: object
+      description: ''
+      deprecated: false
+    Ulid.jsonld-public_building:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Uuid.jsonld-public_building:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Building-public_building:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the building.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_building'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the building.
+          example: London Office
+        timeZone:
+          readOnly: true
+          type: string
+          description: The IANA time zone that the building is in.
+          example: Europe/London
+        latitude:
+          readOnly: true
+          type: number
+          format: float
+          description: The latitude of the building's location.
+          example: 51.509865
+        longitude:
+          readOnly: true
+          type: number
+          format: float
+          description: The longitude of the building's location.
+          example: -0.118092
+        addressLine1:
+          readOnly: true
+          type: string
+          description: The first line of the building address.
+          example: 20 Fenchurch Street
+        addressLine2:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The second line of the building address.
+          example: null
+        city:
+          readOnly: true
+          type: string
+          description: The name of the city that the building is in.
+          example: London
+        county:
+          readOnly: true
+          type: string
+          nullable: true
+          description: The name of the county that the building is in.
+          example: null
+        countryCode:
+          readOnly: true
+          type: string
+          description: The ISO 3166-1 alpha-2 country code that the building is in.
+          example: GB
+        photo:
+          readOnly: true
+          description: The UUID of the photo of the building.
+          example: b74b830a-cf26-47bd-9dbc-237571c79fc3
+          anyOf:
+          - $ref: '#/components/schemas/Uuid-public_building'
           - type: 'null'
         createdAt:
           readOnly: true
