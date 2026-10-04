@@ -146,32 +146,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Floor-public_floor:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the floor.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_floor'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the floor.
-          example: Floor 01
-        floorPlanUrl:
-          readOnly: true
-          type: string
-          description: The URL of the Floor plan SVG.
-          example: https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg
-    Ulid-public_floor:
-      type: object
-      description: ''
-      deprecated: false
     Floor.jsonld-public_floor:
       type: object
       description: ''
@@ -202,6 +176,32 @@ components:
           type: string
           description: The URL of the Floor plan SVG.
           example: https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg
+    Floor-public_floor:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the floor.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_floor'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the floor.
+          example: Floor 01
+        floorPlanUrl:
+          readOnly: true
+          type: string
+          description: The URL of the Floor plan SVG.
+          example: https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg
+    Ulid-public_floor:
+      type: object
+      description: ''
+      deprecated: false
     Ulid.jsonld-public_floor:
       type: object
       description: ''

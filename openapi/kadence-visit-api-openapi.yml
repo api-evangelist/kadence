@@ -345,37 +345,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Ulid-public_visit:
-      type: object
-      description: ''
-      deprecated: false
-    Ulid.jsonld-public_visit:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
     User.jsonld-public_visit:
       type: object
       description: ''
@@ -403,6 +372,114 @@ components:
         '@type':
           readOnly: true
           type: string
+    Ulid.jsonld-public_visit:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+    Visit-public_visit:
+      type: object
+      description: 'Read-only public representation of a visit.
+
+
+        A visit is a guest {@see Booking} viewed through the visits lens. It surfaces the host, building,
+
+        time window and status of the booking, plus the full set of {@see PublicVisitor} attendees that
+
+        belong to it.
+
+
+        The embedded visitors serialise under the shared `public_visit` group, so only their core
+
+        identity/attendance fields appear here — the directory-only fields (visit count + latest visit
+
+        context) carry the `public_visitor` group alone and are omitted from a visit''s `visitors[]` array.
+
+
+        Every group name contains the substring `public` because the public OpenAPI doc command filters
+
+        schema keys on that substring — a group without it is silently dropped from the generated spec.
+
+
+        The `/v1/public/visits` collection + item operations read guest bookings via
+
+        {@see PublicVisitsCollectionDataProvider} / {@see PublicVisitDataProvider}.'
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the visit.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_visit'
+        host:
+          readOnly: true
+          nullable: true
+          description: The IRI of the host who the visit is for.
+          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
+          anyOf:
+          - $ref: '#/components/schemas/User-public_visit'
+          - type: 'null'
+        building:
+          readOnly: true
+          type: object
+          nullable: true
+          description: The building the visit takes place in.
+        startDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the beginning of the visit.
+          example: '2017-07-21T17:32:28+00:00'
+        endDate:
+          readOnly: true
+          type: string
+          format: date-time
+          description: The date and time of the end of the visit.
+          example: '2017-07-21T17:32:28+00:00'
+        status:
+          readOnly: true
+          type: string
+          enum:
+          - booked
+          - checkedIn
+          - checkedOut
+          - completed
+          - cancelled
+          - noCheckIn
+          description: The current status of the visit.
+          example: booked
+        visitors:
+          readOnly: true
+          type: array
+          description: Every attendee of the visit, including the host/organizer, as visitors.
+    Ulid-public_visit:
+      type: object
+      description: ''
+      deprecated: false
     Visit.jsonld-public_visit:
       type: object
       description: 'Read-only public representation of a visit.
@@ -506,83 +583,6 @@ components:
       type: object
       description: ''
       deprecated: false
-    Visit-public_visit:
-      type: object
-      description: 'Read-only public representation of a visit.
-
-
-        A visit is a guest {@see Booking} viewed through the visits lens. It surfaces the host, building,
-
-        time window and status of the booking, plus the full set of {@see PublicVisitor} attendees that
-
-        belong to it.
-
-
-        The embedded visitors serialise under the shared `public_visit` group, so only their core
-
-        identity/attendance fields appear here — the directory-only fields (visit count + latest visit
-
-        context) carry the `public_visitor` group alone and are omitted from a visit''s `visitors[]` array.
-
-
-        Every group name contains the substring `public` because the public OpenAPI doc command filters
-
-        schema keys on that substring — a group without it is silently dropped from the generated spec.
-
-
-        The `/v1/public/visits` collection + item operations read guest bookings via
-
-        {@see PublicVisitsCollectionDataProvider} / {@see PublicVisitDataProvider}.'
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the visit.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_visit'
-        host:
-          readOnly: true
-          nullable: true
-          description: The IRI of the host who the visit is for.
-          example: /v1/public/users/01GTBV1CT3BM8A42SEJ2J5F4EG
-          anyOf:
-          - $ref: '#/components/schemas/User-public_visit'
-          - type: 'null'
-        building:
-          readOnly: true
-          type: object
-          nullable: true
-          description: The building the visit takes place in.
-        startDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time of the beginning of the visit.
-          example: '2017-07-21T17:32:28+00:00'
-        endDate:
-          readOnly: true
-          type: string
-          format: date-time
-          description: The date and time of the end of the visit.
-          example: '2017-07-21T17:32:28+00:00'
-        status:
-          readOnly: true
-          type: string
-          enum:
-          - booked
-          - checkedIn
-          - checkedOut
-          - completed
-          - cancelled
-          - noCheckIn
-          description: The current status of the visit.
-          example: booked
-        visitors:
-          readOnly: true
-          type: array
-          description: Every attendee of the visit, including the host/organizer, as visitors.
   securitySchemes:
     oauth:
       type: oauth2

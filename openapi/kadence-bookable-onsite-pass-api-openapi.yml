@@ -76,11 +76,33 @@ paths:
       deprecated: false
 components:
   schemas:
-    Bookable.Onsite.Pass-public_bookable_onsite_pass:
+    Bookable.Onsite.Pass.jsonld-public_bookable_onsite_pass:
       type: object
       description: ''
       deprecated: false
       properties:
+        '@context':
+          readOnly: true
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
         numPassesAvailable:
           type:
           - integer
@@ -112,33 +134,11 @@ components:
           - null
           description: Why are no passes available. This will be null if there is availability
           example: buildingClosure
-    Bookable.Onsite.Pass.jsonld-public_bookable_onsite_pass:
+    Bookable.Onsite.Pass-public_bookable_onsite_pass:
       type: object
       description: ''
       deprecated: false
       properties:
-        '@context':
-          readOnly: true
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
         numPassesAvailable:
           type:
           - integer
