@@ -50,6 +50,10 @@ x-tier-reason: enriched-from-public-api
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-19'
+x-docs-platform: redocly
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
+x-docs-hosting: aws-cloudfront
 tags:
 - Company
 - Workplace
@@ -345,6 +349,9 @@ apis:
   - type: AgenticAccess
     url: agentic-access/kadence-agentic-access.yml
 common:
+- type: CapabilityMap
+  url: capabilities/kadence-capability-edges.yml
+  name: Kadence Business Capability Map
 - type: Overlay
   url: overlays/kadence-public-api-overlay.yaml
 - type: Website
