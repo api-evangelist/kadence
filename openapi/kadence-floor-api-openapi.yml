@@ -198,10 +198,6 @@ components:
           type: string
           description: The URL of the Floor plan SVG.
           example: https://static.onkadence.co/lightning/0174fdd9-b630-a358-10cb-513e27f40317/floor-plan/0192af88-4bf2-8c5f-9ceb-2e6c6e6226d3.svg
-    Ulid-public_floor:
-      type: object
-      description: ''
-      deprecated: false
     Ulid.jsonld-public_floor:
       type: object
       description: ''
@@ -229,6 +225,10 @@ components:
         '@type':
           readOnly: true
           type: string
+    Ulid-public_floor:
+      type: object
+      description: ''
+      deprecated: false
   securitySchemes:
     oauth:
       type: oauth2

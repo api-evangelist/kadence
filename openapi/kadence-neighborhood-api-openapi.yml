@@ -183,23 +183,6 @@ components:
           type: string
           description: The name of the neighborhood.
           example: Sales
-    Neighborhood-public_neighborhoods:
-      type: object
-      description: ''
-      deprecated: false
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: https://schema.org/identifier
-          description: The ULID of the neighborhood.
-          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
-          $ref: '#/components/schemas/Ulid-public_neighborhoods'
-        name:
-          readOnly: true
-          type: string
-          description: The name of the neighborhood.
-          example: Sales
     Ulid.jsonld-public_neighborhoods:
       type: object
       description: ''
@@ -227,6 +210,23 @@ components:
         '@type':
           readOnly: true
           type: string
+    Neighborhood-public_neighborhoods:
+      type: object
+      description: ''
+      deprecated: false
+      properties:
+        id:
+          readOnly: true
+          externalDocs:
+            url: https://schema.org/identifier
+          description: The ULID of the neighborhood.
+          example: 01GTBV1CT3BM8A42SEJ2J5F4EG
+          $ref: '#/components/schemas/Ulid-public_neighborhoods'
+        name:
+          readOnly: true
+          type: string
+          description: The name of the neighborhood.
+          example: Sales
     Ulid-public_neighborhoods:
       type: object
       description: ''

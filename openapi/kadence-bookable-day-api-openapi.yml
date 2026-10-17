@@ -116,7 +116,7 @@ paths:
       deprecated: false
 components:
   schemas:
-    Bookable.Day.jsonld-public_bookable_day:
+    Bookable.Day-public_bookable_day:
       type: object
       description: ''
       deprecated: false
@@ -133,7 +133,7 @@ components:
           format: date-time
           description: The end of the bookable day (in UTC).
           example: '2023-07-01T17:00:00+00:00'
-    Bookable.Day-public_bookable_day:
+    Bookable.Day.jsonld-public_bookable_day:
       type: object
       description: ''
       deprecated: false
