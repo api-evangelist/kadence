@@ -64,6 +64,149 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kadence is a company surfaced as a portfolio company of techstars and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Kadence is a workplace management platform for hybrid work, helping organizations coordinate people, spaces, and workplace strategy through desk and room booking, visitor management, space management, and workplace analytics. Its Public API (OpenAPI 3.1, v1.2.0) lets applications read and manage buildings, floors, neighborhoods, spaces, bookings, check-ins and check-outs, users, visits, and visitors. The API is an API Platform (Hydra / JSON-LD) service secured with OAuth 2.0 client-credentials (scope "public"), with production hosts at api.onkadence.co and api.us.onkadence.co. Kadence was surfaced as a Techstars portfolio company and enriched into the API Evangelist network from its public developer surface.
 
-Backed by: techstars — https://kadence.co/
+**Areas:** Company · Workplace · Hybrid Work · Desk Booking · Room Booking · Space Management · Visitor Management · Workplace Analytics · Facilities · Authentication
+
+## Kadence on APIs.io
+
+Everything profiled for Kadence is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kadence/](https://apis.io/providers/kadence/)** — or go straight to one of the APIs or properties below.
+
+### APIs (11)
+
+- [Kadence Bookable Day API](https://apis.io/apis/kadence/kadence-bookable-day-api/) — The Bookable Day API from Kadence — 2 operation(s) for bookable day.
+- [Kadence Bookable Onsite Pass API](https://apis.io/apis/kadence/kadence-bookable-onsite-pass-api/) — The Bookable Onsite Pass API from Kadence — 1 operation(s) for bookable onsite pass.
+- [Kadence Bookable Space API](https://apis.io/apis/kadence/kadence-bookable-space-api/) — The Bookable Space API from Kadence — 1 operation(s) for bookable space.
+- [Kadence Booking API](https://apis.io/apis/kadence/kadence-booking-api/) — The Booking API from Kadence — 6 operation(s) for booking.
+- [Kadence Building API](https://apis.io/apis/kadence/kadence-building-api/) — The Building API from Kadence — 2 operation(s) for building.
+- [Kadence Floor API](https://apis.io/apis/kadence/kadence-floor-api/) — The Floor API from Kadence — 2 operation(s) for floor.
+- [Kadence Neighborhood API](https://apis.io/apis/kadence/kadence-neighborhood-api/) — The Neighborhood API from Kadence — 2 operation(s) for neighborhood.
+- [Kadence Space API](https://apis.io/apis/kadence/kadence-space-api/) — The Space API from Kadence — 2 operation(s) for space.
+- [Kadence User API](https://apis.io/apis/kadence/kadence-user-api/) — The User API from Kadence — 3 operation(s) for user.
+- [Kadence Visit API](https://apis.io/apis/kadence/kadence-visit-api/) — The Visit API from Kadence — 2 operation(s) for visit.
+- [Kadence Visitor API](https://apis.io/apis/kadence/kadence-visitor-api/) — The Visitor API from Kadence — 2 operation(s) for visitor.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [kadence](https://apis.io/servers/kadence/kadence/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Kadence Agentic Access](https://apis.io/agentic-access/kadence/kadence-agentic-access/)
+
+#### Collections (11)
+
+Postman and Open Collection request collections.
+
+- [Kadence Public Bookable Day API](https://apis.io/collections/kadence/open-kadence-bookable-day-api/)
+- [Kadence Public Bookable Day Bookable Onsite Pass API](https://apis.io/collections/kadence/open-kadence-bookable-onsite-pass-api/)
+- [Kadence Public Bookable Day Bookable Space API](https://apis.io/collections/kadence/open-kadence-bookable-space-api/)
+- [Kadence Public Bookable Day Booking API](https://apis.io/collections/kadence/open-kadence-booking-api/)
+- [Kadence Public Bookable Day Building API](https://apis.io/collections/kadence/open-kadence-building-api/)
+- [Kadence Public Bookable Day Floor API](https://apis.io/collections/kadence/open-kadence-floor-api/)
+- [Kadence Public Bookable Day Neighborhood API](https://apis.io/collections/kadence/open-kadence-neighborhood-api/)
+- [Kadence Public Bookable Day Space API](https://apis.io/collections/kadence/open-kadence-space-api/)
+- [Kadence Public Bookable Day User API](https://apis.io/collections/kadence/open-kadence-user-api/)
+- [Kadence Public Bookable Day Visit API](https://apis.io/collections/kadence/open-kadence-visit-api/)
+- [Kadence Public Bookable Day Visitor API](https://apis.io/collections/kadence/open-kadence-visitor-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Kadence Public Api Overlay](https://apis.io/overlays/kadence/kadence-public-api-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kadence Authentication](https://apis.io/security/kadence/kadence-authentication/)
+- [Kadence Domain Security](https://apis.io/security/kadence/kadence-domain-security/)
+- [Kadence Trust Center](https://apis.io/security/kadence/kadence-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Kadence Scopes](https://apis.io/scopes/kadence/kadence-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://kadence.co/)
+- [Documentation](https://help.kadence.co/kb/en/api-318752)
+- [Getting started](https://help.kadence.co/kb/en/guide/api-getting-started-developer-guide-yUYh7DBxBW/)
+- [API reference](https://api.kadence.co/)
+- [Pricing](https://kadence.co/pricing/)
+- [Sign up](https://app.onkadence.co)
+- [Support](https://help.kadence.co)
+- [Blog](https://kadence.co/newsroom/)
+- [Compliance](https://kadence.co/security/)
+- [Terms of service](https://kadence.co/terms/)
+- [Privacy policy](https://kadence.co/privacy/)
+- [GitHub](https://github.com/wearekadence)
+- [Status](https://status.kadence.co)
+
+## API Evangelist rating
+
+**Kin Score 41.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 51.8 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.0 |
+| Access clarity | 47.4 |
+
+**Agent readiness 30.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 39.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kadence/](https://apis.io/providers/kadence/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kadence: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kadence/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
